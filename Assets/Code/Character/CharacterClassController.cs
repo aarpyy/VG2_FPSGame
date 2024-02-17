@@ -58,6 +58,7 @@ namespace Code.Character
             healthBar.minValue = 0;
 
             _sprintBarValue = 1.0f;
+            sprintBar.SetValue(100);
         }
 
         private void Update()
@@ -67,14 +68,14 @@ namespace Code.Character
                 return;
             }
 
-            healthBar.currentValue = _health.Health / _health.MaxHealth;
+            healthBar.SetValue(_health.Health);
 
             if (_characterController == null)
             {
                 return;
             }
 
-            if (_characterController.IsSprinting)
+            if (_characterController.IsRunning)
             {
                 _sprintBarValue -= sprintBarDecreaseRate * Time.deltaTime;
             }
@@ -84,7 +85,7 @@ namespace Code.Character
             }
             
             _sprintBarValue = Mathf.Clamp(_sprintBarValue, 0.0f, 1.0f);
-            sprintBar.currentValue = _sprintBarValue;
+            sprintBar.SetValue(_sprintBarValue * 100f);
             
             if (_sprintBarValue <= 0.0f)
             {
