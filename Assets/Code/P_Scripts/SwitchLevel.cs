@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
-public class SwitchLevel : MonoBehaviour
+namespace Code.P_Scripts
 {
-    public string name;
-
-    private void OnTriggerEnter(Collider other)
+    public class SwitchLevel : MonoBehaviour
     {
-        if (other.tag == "Player")
+        public string sceneName;
+
+        private void OnTriggerEnter(Collider other)
         {
- 
-            SceneManager.LoadScene(name);
+            if (other.CompareTag("Player"))
+            {
+                SceneManager.LoadScene(sceneName);
+            }
         }
     }
-
 }

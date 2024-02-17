@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 8051071789507769295, guid: 021e8993a49d6ea4fbd6f1af51c5dded,
         type: 3}
       propertyPath: m_Name
-      value: FPS Character Variant
+      value: DoubleJumpClass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95,4 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742283f163f543ca8d7e832249e83c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Base Class
+  title: Double Jumper
+  dash: 0
+  doubleJump: 1
