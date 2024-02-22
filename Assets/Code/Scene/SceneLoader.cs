@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code.Scene
 {
@@ -6,7 +7,12 @@ namespace Code.Scene
     {
         public void LoadScene(string sceneName)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
+        }
+        
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
