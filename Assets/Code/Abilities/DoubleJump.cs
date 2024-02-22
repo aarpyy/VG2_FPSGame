@@ -1,6 +1,7 @@
 using UnityEngine;
 // > Import JU Input System Lib
 using JUTPS.JUInputSystem;
+using Code.Character;
 
 // > inherit the JUTPSAnimatedAction class
 public class DoubleJump : JUTPSActions.JUTPSAnimatedAction
@@ -12,7 +13,16 @@ public class DoubleJump : JUTPSActions.JUTPSAnimatedAction
     public float doubleJumpCD = 3f;
     public float doubleJumpTimer;
 
-    void Start() { SwitchAnimationLayer(ActionPart.FullBody); }
+    private CharacterClass characterClass;
+    private bool hasDoubleJump;
+
+    void Start() 
+    { 
+        SwitchAnimationLayer(ActionPart.FullBody);
+        characterClass = GetComponent<CharacterClass>();
+        hasDoubleJump = characterClass.doubleJump;
+        
+    }
     bool IsGrounded()
     {
         return rb.velocity.y == 0;
@@ -22,6 +32,8 @@ public class DoubleJump : JUTPSActions.JUTPSAnimatedAction
     {
         Debug.Log("Double jump");
         isGrounded = IsGrounded();
+        if (!hasDoubleJump) return;
+
         if (JUInput.GetButtonDown(JUInput.Buttons.JumpButton) && !IsGrounded() && IsActionPlaying==false && doubleJumpTimer <= 0)
         {
             Debug.Log("Jumping");

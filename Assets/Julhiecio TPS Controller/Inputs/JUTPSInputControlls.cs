@@ -527,6 +527,17 @@ namespace JUTPS.JUInputSystem
                 },
                 {
                     ""name"": """",
+                    ""id"": ""250466fe-b2b9-4db3-a773-d6e6e34dc49e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""85263253-7c28-49d6-b635-e30de38c2e35"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
