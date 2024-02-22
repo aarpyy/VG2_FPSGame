@@ -29443,12 +29443,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuCanvas: {fileID: 1085873265}
-  continueButton: {fileID: 0}
+  continueButton: {fileID: 424391110}
   panelManager: {fileID: 1165419916}
   background: {fileID: 603198729}
   setTimeScale: 1
   inputBlockDuration: 0.2
-  menuCursorState: 0
+  menuCursorState: 2
   gameCursorState: 1
   hotkey:
     m_Name: Hotkey
