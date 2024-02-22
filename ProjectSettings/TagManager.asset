@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Distractable
   - CoverTrigger
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,317 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4132944284232935883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3489979222139667193, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: JuTPSCharacter
+      value: 
+      objectReference: {fileID: 663664605470288696}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.33424
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.231
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.31478
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Name
+      value: Default Character Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6990835895164698112, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59261d074509c7d4795eb7e05d29d5a6, type: 2}
+    m_RemovedComponents:
+    - {fileID: 668999647, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 664929024925058387}
+    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2024143768448769831}
+    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4057551855876304897}
+    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1636435515073482515}
+    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1743319837184881071}
+    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 868876137369761979}
+  m_SourcePrefab: {fileID: 100100000, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
+--- !u!1 &429151074318128907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4132944284232935883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &664929024925058387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734161a6aca33c34a923d1da70fa5203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionDuration: 1
+  EnterTransitionSpeed: 5
+  ExitTransitionSpeed: 5
+  ActionState: 0
+  AnimationStateName: DoubleJump
+  jumpForce: 2
+--- !u!114 &2024143768448769831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff1115af86533e4f8aeb8afb0b90ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionDuration: 1
+  EnterTransitionSpeed: 5
+  ExitTransitionSpeed: 5
+  ActionState: 0
+  orientation: {fileID: 1062697832085310897}
+  AnimationStateName: Dash
+  dashForce: 1
+  dashUpwardForce: 1
+  dashDuration: 1
+  dashCD: 10
+--- !u!114 &4057551855876304897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554b6bd57fe7ff6468e0f5adbc5ecd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionDuration: 1
+  EnterTransitionSpeed: 5
+  ExitTransitionSpeed: 5
+  ActionState: 0
+  TargetLayer: 2
+  AnimatorStateName: DoubleJump
+  StartMotionAt: 0
+  InputToCallAction:
+    EventName: Space Key
+    Input: <Keyboard>/space
+    targetInput:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: fe8dad40-8855-4f80-be26-74a8d1d1700a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    OnInputEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputUp:
+      m_PersistentCalls:
+        m_Calls: []
+  ForceFireMode: 0
+  ForceNoFireMode: 0
+  BlockCharacterLocomotion: 0
+  StartActionEvenStateIsPlaying: 0
+--- !u!114 &1636435515073482515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554b6bd57fe7ff6468e0f5adbc5ecd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionDuration: 1
+  EnterTransitionSpeed: 5
+  ExitTransitionSpeed: 5
+  ActionState: 0
+  TargetLayer: 2
+  AnimatorStateName: Dashing
+  StartMotionAt: 0
+  InputToCallAction:
+    EventName: E Key
+    Input: <Keyboard>/e
+    targetInput:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: cc2a8612-f3a1-43c5-9f52-e3f03cb328ee
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    OnInputEnter:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputPerformed:
+      m_PersistentCalls:
+        m_Calls: []
+    OnInputUp:
+      m_PersistentCalls:
+        m_Calls: []
+  ForceFireMode: 0
+  ForceNoFireMode: 0
+  BlockCharacterLocomotion: 0
+  StartActionEvenStateIsPlaying: 0
+--- !u!114 &1743319837184881071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab4a555287931f4a89338e9632f2f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JUAnimationEvents:
+  - EventName: Double Jump
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 664929024925058387}
+          m_TargetAssemblyTypeName: DoubleJump, Assembly-CSharp
+          m_MethodName: doubleJump
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - EventName: Dashing
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2024143768448769831}
+          m_TargetAssemblyTypeName: Dash, Assembly-CSharp
+          m_MethodName: dash
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &868876137369761979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742283f163f543ca8d7e832249e83c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: DefaultCharacter
+  dash: 1
+  doubleJump: 1
+--- !u!114 &663664605470288696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4132944284232935883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429151074318128907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2f1b4d5da6234438ceca64fb2aa3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1062697832085310897 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4132944284232935883}
+  m_PrefabAsset: {fileID: 0}

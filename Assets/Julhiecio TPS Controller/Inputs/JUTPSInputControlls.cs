@@ -185,7 +185,7 @@ namespace JUTPS.JUInputSystem
                 {
                     ""name"": ""Slot1"",
                     ""type"": ""Button"",
-                    ""id"": ""3a8fa994-9689-468c-b9b2-a56a62be1009"",
+                    ""id"": ""79873f54-a6dc-45b2-a6d7-8b8308102d8b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -267,6 +267,15 @@ namespace JUTPS.JUInputSystem
                     ""name"": ""Slot10"",
                     ""type"": ""Button"",
                     ""id"": ""7747d8b0-72ae-4d36-997f-8ed9e5ee10f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""875b27a6-b87a-4aad-bac6-e0105dfdaf4f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -513,17 +522,6 @@ namespace JUTPS.JUInputSystem
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Prone"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""582d0972-ef75-4ed6-b02d-b9b3bd0fd5bd"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Next"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -782,17 +780,6 @@ namespace JUTPS.JUInputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e33cee41-cbb5-4335-a045-9b6d09b9663b"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Slot1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""383dfe37-bb08-4fbb-8776-83c6c1fd097e"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
@@ -887,6 +874,28 @@ namespace JUTPS.JUInputSystem
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Slot10"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f3229e4-ac1e-469b-a828-c470574046ab"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Slot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54d115f2-3e70-42b8-ac84-48637dadd544"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1501,6 +1510,7 @@ namespace JUTPS.JUInputSystem
             m_Player_Slot8 = m_Player.FindAction("Slot8", throwIfNotFound: true);
             m_Player_Slot9 = m_Player.FindAction("Slot9", throwIfNotFound: true);
             m_Player_Slot10 = m_Player.FindAction("Slot10", throwIfNotFound: true);
+            m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1601,6 +1611,7 @@ namespace JUTPS.JUInputSystem
         private readonly InputAction m_Player_Slot8;
         private readonly InputAction m_Player_Slot9;
         private readonly InputAction m_Player_Slot10;
+        private readonly InputAction m_Player_Dash;
         public struct PlayerActions
         {
             private @JUTPSInputControlls m_Wrapper;
@@ -1632,6 +1643,7 @@ namespace JUTPS.JUInputSystem
             public InputAction @Slot8 => m_Wrapper.m_Player_Slot8;
             public InputAction @Slot9 => m_Wrapper.m_Player_Slot9;
             public InputAction @Slot10 => m_Wrapper.m_Player_Slot10;
+            public InputAction @Dash => m_Wrapper.m_Player_Dash;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1722,6 +1734,9 @@ namespace JUTPS.JUInputSystem
                 @Slot10.started += instance.OnSlot10;
                 @Slot10.performed += instance.OnSlot10;
                 @Slot10.canceled += instance.OnSlot10;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -1807,6 +1822,9 @@ namespace JUTPS.JUInputSystem
                 @Slot10.started -= instance.OnSlot10;
                 @Slot10.performed -= instance.OnSlot10;
                 @Slot10.canceled -= instance.OnSlot10;
+                @Dash.started -= instance.OnDash;
+                @Dash.performed -= instance.OnDash;
+                @Dash.canceled -= instance.OnDash;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -2016,6 +2034,7 @@ namespace JUTPS.JUInputSystem
             void OnSlot8(InputAction.CallbackContext context);
             void OnSlot9(InputAction.CallbackContext context);
             void OnSlot10(InputAction.CallbackContext context);
+            void OnDash(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
