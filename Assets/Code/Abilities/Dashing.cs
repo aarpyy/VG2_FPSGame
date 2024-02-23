@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 // > inherit the JUTPSAnimatedAction class
@@ -20,19 +21,16 @@ public class Dashing : MonoBehaviour
 
     [Header("Input")]
     public KeyCode dashKey = KeyCode.Q;
+    public InputAction dashInput;
 
     private void Start() 
     { 
         rb = GetComponent<Rigidbody>();
+        dashInput.performed += _ => Dash();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(dashKey))
-        {
-            Dash();
-        }
-
         if(dashCDTimer >0)
         {
             dashCDTimer -= Time.deltaTime;

@@ -320,7 +320,24 @@ MonoBehaviour:
   dashForce: 10
   dashDuration: 2
   dashCD: 1
-  dashKey: 113
+  dashKey: 308
+  dashInput:
+    m_Name: Dash Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f223775e-07eb-4064-af3e-8ab152f0daa3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: f51c7a1f-d62c-4ed6-bf0c-f363bef2cf42
+      m_Path: <Keyboard>/leftAlt
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!114 &4057551855876304897
 MonoBehaviour:
   m_ObjectHideFlags: 0
