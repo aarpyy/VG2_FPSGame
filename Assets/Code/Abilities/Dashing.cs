@@ -20,13 +20,13 @@ public class Dashing : MonoBehaviour
     private float dashCDTimer;
 
     [Header("Input")]
-    public KeyCode dashKey = KeyCode.Q;
     public InputAction dashInput;
 
     private void Start() 
     { 
         rb = GetComponent<Rigidbody>();
-        dashInput.performed += _ => Dash();
+        dashInput.performed += Dash;
+        dashInput.Enable();
     }
 
     private void Update()
@@ -38,13 +38,8 @@ public class Dashing : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
     //Called every frame
-    private void Dash()
+    private void Dash(InputAction.CallbackContext context)
     {
         if (dashCDTimer > 0) { return; }
         else dashCDTimer = dashCD;

@@ -7,9 +7,17 @@ namespace Code.Menu
     public class LevelUIManager : MonoBehaviour
     {
         private PauseMenuManager _pauseMenuManager;
+        public LevelUIManager Instance { get; private set; }
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            
+            Instance = this;
             DontDestroyOnLoad(gameObject);
             _pauseMenuManager = GetComponentInChildren<PauseMenuManager>(true);
             DisableLevelMenu();
