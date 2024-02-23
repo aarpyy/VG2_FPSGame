@@ -1,4 +1,5 @@
-using System;
+using Code.Attributes;
+using Code.Utils;
 using JUTPS;
 using JUTPS.InventorySystem;
 using UnityEngine;
@@ -10,28 +11,34 @@ namespace Code.Character
     {
         // State
         public string title;
-        public bool dash;
-        public bool doubleJump;
         
-        [Header("Sprint")]
+        [Header("Sprint Settings")]
+        public bool sprint;
+        
+        [ConditionalField("sprint", true, ComparisonType.Equals)]
+        public bool unlimitedSprint;
+        
+        [ConditionalField("unlimitedSprint", false, ComparisonType.Equals)]
         public float sprintBarDecreaseRate = 0.1f;
+        [ConditionalField("unlimitedSprint", false, ComparisonType.Equals)]
         public float sprintBarIncreaseRate = 0.2f;
         
         private JUCharacterController _characterController;
-        private float _playerSpeed;
         
         public float SprintPercentage { get; private set; }
         
         private void Awake()
         {
             _characterController = GetComponent<JUCharacterController>();
-            _playerSpeed = _characterController.Speed;
+            _characterController.SprintingSkill = sprint;
             SprintPercentage = 1.0f;
         }
 
         private void Update()
         {
-            if (_characterController.IsRunning)
+            if (!sprint || unlimitedSprint) return;
+            
+            if (_characterController.IsSprinting)
             {
                 SprintPercentage -= sprintBarDecreaseRate * Time.deltaTime;
             }
@@ -41,17 +48,9 @@ namespace Code.Character
             }
             
             SprintPercentage = Mathf.Clamp(SprintPercentage, 0.0f, 1.0f);
-            
-            // If they have no sprint left, halve their speed
-            if (SprintPercentage <= 0.0001f)
-            {
-                _characterController.Speed = _playerSpeed / 2.0f;
-            }
-            // Otherwise if they either have sprint or are regenerating it, set their speed back to normal (if changed)
-            else if (Math.Abs(_characterController.Speed - _playerSpeed) > 0.0001f)
-            {
-                _characterController.Speed = _playerSpeed;
-            }
+    
+            // Update the character controller to reflect is player is allowed to sprint
+            _characterController.SprintingSkill = SprintPercentage > 0.0001f;
         }
     }
 }

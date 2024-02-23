@@ -1,63 +1,62 @@
 using UnityEngine;
-// > Import JU Input System Lib
 using JUTPS.JUInputSystem;
-using Code.Character;
+using JUTPS;
 
-// > inherit the JUTPSAnimatedAction class
-public class DoubleJump : JUTPSActions.JUTPSAnimatedAction
+namespace Code.Abilities
 {
-    [Header("Double Jump")]
-    public string AnimationStateName;
-    public float jumpForce = 1.0f;
-    public bool isGrounded;
-    public float doubleJumpCD = 3f;
-    public float doubleJumpTimer;
-
-    private CharacterClass characterClass;
-    private bool hasDoubleJump;
-
-    void Start() 
-    { 
-        SwitchAnimationLayer(ActionPart.FullBody);
-        characterClass = GetComponent<CharacterClass>();
-        hasDoubleJump = characterClass.doubleJump;
+    [RequireComponent(typeof(JUCharacterController))]
+    public class DoubleJump : MonoBehaviour
+    {
+        // Configuration
+        public float jumpForce = 3f;
+        public float cooldown = 5f;
         
-    }
-    bool IsGrounded()
-    {
-        return rb.velocity.y == 0;
-    }
-    //Called every frame
-    public override void ActionCondition()
-    {
-        Debug.Log("Double jump");
-        isGrounded = IsGrounded();
-        if (!hasDoubleJump) return;
+        // State
+        private bool _canDoubleJump;
+        private bool _hasDoubleJumped;
+        private float _timeSinceLastJump;
+        
+        // Outlets
+        private JUCharacterController _characterController;
+        private Rigidbody _rb;
 
-        if (JUInput.GetButtonDown(JUInput.Buttons.JumpButton) && !IsGrounded() && IsActionPlaying==false && doubleJumpTimer <= 0)
+        private void Awake()
         {
-            Debug.Log("Jumping");
-            //Start action and play animation
-            StartAction();
-            PlayAnimation(AnimationStateName);
-            doubleJumpTimer = doubleJumpCD;
+            _characterController = GetComponent<JUCharacterController>();
+            _rb = GetComponent<Rigidbody>();
+            _timeSinceLastJump = cooldown + 1;
         }
-        if(doubleJumpTimer > 0)
-        {
-            doubleJumpTimer -= Time.deltaTime;
-        }
-    }
-    //Called every frame while action is playing
-    public override void OnActionIsPlaying()
-    {
-        rb.AddForce(new Vector3(0.0f, 2.0f, 0.0f) * jumpForce, ForceMode.Impulse);
-    }
-    public override void OnActionEnded()
-    {
-    }
 
-    // >> Function to be called by JU Animation Event Receiver <<
-    public void doubleJump()
-    {
+        //Called every frame
+        private void Update()
+        {
+            _timeSinceLastJump += Time.deltaTime;
+            
+            // If on the ground, they can double jump
+            if (_characterController.IsGrounded)
+            {
+                _hasDoubleJumped = false;
+                _canDoubleJump = false;
+                return;
+            }
+
+            // If they have already double jumped, they cannot double jump again
+            if (_hasDoubleJumped)
+            {
+                return;
+            }
+
+            if (JUInput.GetButtonUp(JUInput.Buttons.JumpButton))
+            {
+                // If the character is in the air and has not double jumped, then they can double jump
+                 _canDoubleJump = true;
+            }
+            else if (_canDoubleJump && JUInput.GetButtonDown(JUInput.Buttons.JumpButton) && _timeSinceLastJump > cooldown)
+            {
+                _hasDoubleJumped = true;
+                _rb.AddForce(transform.up * (200 * jumpForce), ForceMode.Impulse);
+                _timeSinceLastJump = 0;
+            }
+        }
     }
 }

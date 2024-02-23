@@ -1,18 +1,21 @@
-using System;
 using JUTPS;
-using Michsky.UI.Heat;
+using JUTPS.CameraSystems;
 using UnityEngine;
 
 namespace Code.Character
 {
     public class CharacterClassController : MonoBehaviour
     {
-        public static JUCharacterController ActiveController { get; private set; }
-        public static CharacterClass ActiveClass { get; private set; }
-        public static JUHealth ActiveHealth { get; private set; }
-
+        public JUCameraController cameraController;
+        
+        public static CharacterClassController Instance { get; private set; }
+        public JUCharacterController ActiveController { get; private set; }
+        public CharacterClass ActiveClass { get; private set; }
+        public JUHealth ActiveHealth { get; private set; }
+        
         private void Awake()
         {
+            Instance = this;
             LoadCharacterClass(CharacterClassSelector.SelectedCharacterClass);
         }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Michsky.UI.Heat;
 using UnityEngine;
 
@@ -13,6 +11,7 @@ namespace Code.Character
         
         // The character classes to choose from
         public CharacterClass[] characterClassPrefabs;
+        public Camera renderTextureCamera;
         
         // The horizontal selector to use for choosing the character class
         private HorizontalSelector _horizontalSelector;

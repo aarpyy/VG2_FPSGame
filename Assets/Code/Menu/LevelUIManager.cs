@@ -1,17 +1,30 @@
 ﻿using Michsky.UI.Heat;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code.Menu
 {
-    public class LevelMenuManager : MonoBehaviour
+    public class LevelUIManager : MonoBehaviour
     {
         private PauseMenuManager _pauseMenuManager;
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            _pauseMenuManager = GetComponentInChildren<PauseMenuManager>();
+            _pauseMenuManager = GetComponentInChildren<PauseMenuManager>(true);
             DisableLevelMenu();
+            
+            SceneManager.activeSceneChanged += (_, curr) =>
+            {
+                if (curr.buildIndex != 0)
+                {
+                    EnableLevelMenu();
+                }
+                else
+                {
+                    DisableLevelMenu();
+                }
+            };
         }
 
         public void EnableLevelMenu()

@@ -1,4 +1,5 @@
-﻿using Code.Character;
+﻿using System;
+using Code.Character;
 using Michsky.UI.Heat;
 using UnityEngine;
 
@@ -14,9 +15,15 @@ namespace Code.UI
             _healthBar = GetComponent<ProgressBar>();
         }
 
+        private void Start()
+        {
+            _healthBar.maxValue = CharacterClassController.Instance.ActiveHealth.MaxHealth;
+            _healthBar.SetValue(CharacterClassController.Instance.ActiveHealth.Health);
+        }
+
         private void Update()
         {
-            var health = CharacterClassController.ActiveHealth;
+            var health = CharacterClassController.Instance.ActiveHealth;
             _healthBar.SetValue(health.Health);
         }
     }

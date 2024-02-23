@@ -27,6 +27,21 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.0000029021373
       objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: AutoRun
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: SprintingSkill
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: UnlimitedSprintDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3489979222139667193, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: JuTPSCharacter
@@ -275,15 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734161a6aca33c34a923d1da70fa5203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionDuration: 1
-  EnterTransitionSpeed: 5
-  ExitTransitionSpeed: 5
-  ActionState: 0
-  AnimationStateName: DoubleJump
-  jumpForce: 2
-  isGrounded: 0
-  doubleJumpCD: 3
-  doubleJumpTimer: 0
+  jumpForce: 3
+  cooldown: 4
 --- !u!114 &2024143768448769831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,8 +460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: SoldierZeroClass
-  dash: 1
-  doubleJump: 1
+  sprint: 1
+  unlimitedSprint: 1
   sprintBarDecreaseRate: 0.1
   sprintBarIncreaseRate: 0.2
 --- !u!114 &663664605470288696 stripped
