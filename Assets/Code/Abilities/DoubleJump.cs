@@ -2,6 +2,8 @@ using UnityEngine;
 // > Import JU Input System Lib
 using JUTPS.JUInputSystem;
 using Code.Character;
+using JUTPS;
+using JUTPS.CharacterBrain;
 
 // > inherit the JUTPSAnimatedAction class
 public class DoubleJump : JUTPSActions.JUTPSAnimatedAction
@@ -33,6 +35,7 @@ public class DoubleJump : JUTPSActions.JUTPSAnimatedAction
         Debug.Log("Double jump");
         isGrounded = IsGrounded();
         if (!hasDoubleJump) return;
+        JUCharacterBrain JB = GetComponent<JUCharacterBrain>();
 
         if (JUInput.GetButtonDown(JUInput.Buttons.JumpButton) && !IsGrounded() && IsActionPlaying==false && doubleJumpTimer <= 0)
         {
