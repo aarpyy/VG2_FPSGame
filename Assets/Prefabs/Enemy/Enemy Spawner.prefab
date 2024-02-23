@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2216725407231516270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6992315821193428825}
+  - component: {fileID: 4824877837355217802}
+  m_Layer: 0
+  m_Name: Enemy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6992315821193428825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216725407231516270}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 57.1, y: 0.02, z: 62.51}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4824877837355217802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216725407231516270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0096f6e233501104390d9b289f66a017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 0}
+  StartInstantiateOnAwake: 1
+  TimeToSpawn: 5
+  Repeat: 1
+  RepeatingTime: 1
+  InstanceLifeTime: -1
+  SwitchToRandomInstantiate: 1
+  PrefabsToInstantiate:
+  - {fileID: 3513418379050987121, guid: c037204b031768745ae0c46b08d2ea63, type: 3}
+  - {fileID: 5940494116005372308, guid: 0512cd65601b4da4e8518e93ea49821f, type: 3}
+  - {fileID: 8983697831320946280, guid: 656320151b789a24a9cf7bbc4fcd8d87, type: 3}
+  - {fileID: 2526349244699519149, guid: 3f0387de6c01f7f4984800b47106a487, type: 3}
+  - {fileID: 5969838821545670855, guid: eacf797b4c89cdf419b43e3cd2ea2417, type: 3}
+  SpawnArea: {x: 20, y: 0, z: 20}
+  PositionOffset: {x: 0, y: 0, z: 0}
+  RandomRotation: 1
+  Quantity: 1
+  InstancesLimit: 20
+  EmptyInstantiatePorcentage: 0
+  OnInstantiate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4824877837355217802}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: AddQuantity
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

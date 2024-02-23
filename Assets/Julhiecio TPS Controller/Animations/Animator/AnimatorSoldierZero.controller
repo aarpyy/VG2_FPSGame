@@ -9364,7 +9364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultEvent: 0
-  Duration: 0
+  Duration: 0.362
   AnimationEventName: Double Jump
   Delay: 0
   CalledAnimationEvent: 0

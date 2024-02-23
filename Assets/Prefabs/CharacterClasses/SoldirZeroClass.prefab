@@ -12,6 +12,22 @@ PrefabInstance:
       propertyPath: Actions.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 668999648, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
+      propertyPath: Actions.Array.data[0].EventName
+      value: Dashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 668999648, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
+      propertyPath: Actions.Array.data[0].OnInputEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2024143768448769831}
+    - target: {fileID: 668999648, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
+      propertyPath: Actions.Array.data[0].OnInputEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 668999648, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
+      propertyPath: Actions.Array.data[0].OnInputEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Dash, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3489979221639870949, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -262,10 +278,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1636435515073482515}
-    - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1743319837184881071}
     - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
@@ -304,16 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff1115af86533e4f8aeb8afb0b90ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActionDuration: 1
-  EnterTransitionSpeed: 5
-  ExitTransitionSpeed: 5
-  ActionState: 0
   orientation: {fileID: 1062697832085310897}
-  AnimationStateName: Dash
-  dashForce: 1
-  dashUpwardForce: 1
-  dashDuration: 1
-  dashCD: 10
+  dashForce: 10
+  dashDuration: 2
+  dashCD: 1
+  dashKey: 113
 --- !u!114 &4057551855876304897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,50 +365,6 @@ MonoBehaviour:
   ForceNoFireMode: 0
   BlockCharacterLocomotion: 0
   StartActionEvenStateIsPlaying: 0
---- !u!114 &1636435515073482515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429151074318128907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554b6bd57fe7ff6468e0f5adbc5ecd3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActionDuration: 1
-  EnterTransitionSpeed: 5
-  ExitTransitionSpeed: 5
-  ActionState: 0
-  TargetLayer: 2
-  AnimatorStateName: Dashing
-  StartMotionAt: 0
-  InputToCallAction:
-    EventName: E Key
-    Input: <Keyboard>/e
-    targetInput:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: cc2a8612-f3a1-43c5-9f52-e3f03cb328ee
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    OnInputEnter:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputPerformed:
-      m_PersistentCalls:
-        m_Calls: []
-    OnInputUp:
-      m_PersistentCalls:
-        m_Calls: []
-  ForceFireMode: 0
-  ForceNoFireMode: 0
-  BlockCharacterLocomotion: 0
-  StartActionEvenStateIsPlaying: 0
 --- !u!114 &1743319837184881071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,22 +385,6 @@ MonoBehaviour:
         - m_Target: {fileID: 664929024925058387}
           m_TargetAssemblyTypeName: DoubleJump, Assembly-CSharp
           m_MethodName: doubleJump
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - EventName: Dashing
-    Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2024143768448769831}
-          m_TargetAssemblyTypeName: Dash, Assembly-CSharp
-          m_MethodName: dash
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
