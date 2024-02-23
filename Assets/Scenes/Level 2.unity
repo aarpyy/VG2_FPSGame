@@ -13624,7 +13624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba12b3f08a9bab469a0dafba94d20a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 1
+  sceneName: Main Menu
 --- !u!43 &1854328740
 Mesh:
   m_ObjectHideFlags: 0

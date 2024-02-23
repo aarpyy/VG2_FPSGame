@@ -7,7 +7,7 @@ namespace Code.Menu
     public class LevelUIManager : MonoBehaviour
     {
         private PauseMenuManager _pauseMenuManager;
-        public LevelUIManager Instance { get; private set; }
+        public static LevelUIManager Instance { get; private set; }
 
         private void Awake()
         {
