@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using JUTPS.FX;
 using JUTPSEditor.JUHeader;
 
@@ -29,6 +30,7 @@ namespace JUTPS
         {
             LimitHealth();
             InvokeRepeating(nameof(CheckHealthState), 0, 0.5f);
+
         }
         private void LimitHealth()
         {
@@ -66,7 +68,10 @@ namespace JUTPS
                 foreach (Damager dmg in GetComponentsInChildren<Damager>()) dmg.gameObject.SetActive(false);
 
                 OnDeath.Invoke();
+              
+                
             }
+
 
             if (Health > 0) IsDead = false;
         }
