@@ -31,6 +31,8 @@ namespace Code.Menu
                 else
                 {
                     DisableLevelMenu();
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                 }
             };
         }
