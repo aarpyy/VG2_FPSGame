@@ -13,7 +13,7 @@ public class Dashing : MonoBehaviour
     public float dashForce = 10f;
     private int dashForceMultiplier = 1000;
     public float dashDuration = 1.0f;
-    private bool dashing = false;
+    //private bool dashing = false;
 
     [Header("Cooldown")]
     public float dashCD = 1.0f;
@@ -45,7 +45,7 @@ public class Dashing : MonoBehaviour
         else dashCDTimer = dashCD;
 
 
-        dashing = true;
+        //dashing = true;
         Vector3 forceToApply = orientation.forward * dashForce * dashForceMultiplier;
 
         delayedForceToApply = forceToApply;
@@ -57,7 +57,7 @@ public class Dashing : MonoBehaviour
 
     private void ResetDash()
     {
-        dashing = false;
+        //dashing = false;
     }
 
     private Vector3 delayedForceToApply;
