@@ -52,11 +52,11 @@ MonoBehaviour:
   InstanceLifeTime: -1
   SwitchToRandomInstantiate: 1
   PrefabsToInstantiate:
-  - {fileID: 3513418379050987121, guid: c037204b031768745ae0c46b08d2ea63, type: 3}
-  - {fileID: 5940494116005372308, guid: 0512cd65601b4da4e8518e93ea49821f, type: 3}
-  - {fileID: 524504973425530762, guid: 5aee59831ee1de5469218fbb28557eb0, type: 3}
-  - {fileID: 2526349244699519149, guid: 3f0387de6c01f7f4984800b47106a487, type: 3}
+  - {fileID: 5020065889651602335, guid: c037204b031768745ae0c46b08d2ea63, type: 3}
+  - {fileID: 6762101319771028823, guid: 0512cd65601b4da4e8518e93ea49821f, type: 3}
   - {fileID: 5969838821545670855, guid: eacf797b4c89cdf419b43e3cd2ea2417, type: 3}
+  - {fileID: 5637797920203611355, guid: 5aee59831ee1de5469218fbb28557eb0, type: 3}
+  - {fileID: 2526349244699519149, guid: 3f0387de6c01f7f4984800b47106a487, type: 3}
   SpawnArea: {x: 20, y: 0, z: 20}
   PositionOffset: {x: 0, y: 0, z: 0}
   RandomRotation: 1
