@@ -34,6 +34,7 @@ namespace Code.Character
             }
 
             var instantiated = Instantiate(characterClass, transform, true);
+            instantiated.transform.localPosition = Vector3.zero;
             ActiveClass = instantiated.GetComponent<CharacterClass>();
 
             ActiveHealth = instantiated.GetComponent<JUHealth>();
