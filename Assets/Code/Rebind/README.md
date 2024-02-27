@@ -1,0 +1,1 @@
+﻿These files are basically exactly the files provided in the Input System sample by Unity, with changes for compatability with the UI package.
