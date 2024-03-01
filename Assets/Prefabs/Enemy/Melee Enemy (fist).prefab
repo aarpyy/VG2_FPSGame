@@ -1884,12 +1884,12 @@ MonoBehaviour:
   - {fileID: 753225449389789034}
   WaypointPathPositions:
   - {x: 24.15004, y: 0, z: 44.49882}
-  - {x: 5.370039, y: 0, z: 48.49882}
-  - {x: 5.370039, y: 0, z: 64.59882}
-  - {x: 33.73004, y: 0, z: 64.59882}
-  - {x: 33.73004, y: 0, z: 37.43882}
-  - {x: 6.950039, y: 0, z: 37.43882}
-  - {x: 6.950039, y: 0, z: 49.33882}
+  - {x: 14.760039, y: 0, z: 46.49882}
+  - {x: 14.760039, y: 0, z: 54.54882}
+  - {x: 28.94004, y: 0, z: 54.54882}
+  - {x: 28.94004, y: 0, z: 40.968822}
+  - {x: 15.550039, y: 0, z: 40.968822}
+  - {x: 15.550039, y: 0, z: 46.918823}
   ClearWaypointsAfterGettingPathPositions: 0
   ReverseOnStart: 0
   DrawPath: 1
@@ -2060,6 +2060,9 @@ GameObject:
   - component: {fileID: 557988922735821233}
   - component: {fileID: 1416779726271111231}
   - component: {fileID: 6983302858041319766}
+  - component: {fileID: 7795408090328207957}
+  - component: {fileID: 599605665615381439}
+  - component: {fileID: 7601590039123837337}
   m_Layer: 9
   m_Name: Melee Enemy (fist)
   m_TagString: Enemy
@@ -2185,13 +2188,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 150
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2330,7 +2333,7 @@ MonoBehaviour:
   GroundCheckSize: 0.5
   WhatIsWall:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 65536
   WallRayHeight: 1
   WallRayDistance: 0.6
   EnableStepCorrection: 1
@@ -2513,7 +2516,31 @@ MonoBehaviour:
   BloodHitParticle: {fileID: 0}
   OnDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7795408090328207957}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.AutoDestroy, Assembly-CSharp
+        m_MethodName: TimedDestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 599605665615381439}
+        m_TargetAssemblyTypeName: JUTPS.Utilities.JUAutoInstantiate, Assembly-CSharp
+        m_MethodName: InstantiatePrefab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsDead: 0
 --- !u!114 &6983302858041319766
 MonoBehaviour:
@@ -2571,6 +2598,75 @@ MonoBehaviour:
   _OnStopSeeingTarget:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7795408090328207957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020065889651602335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b28f181aaac6b448995bcd0df949895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondsToDestroy: 5
+  DestroyOnStart: 0
+--- !u!114 &599605665615381439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020065889651602335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0096f6e233501104390d9b289f66a017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 0}
+  StartInstantiateOnAwake: 0
+  TimeToSpawn: 2
+  Repeat: 0
+  RepeatingTime: 1
+  InstanceLifeTime: 15
+  SwitchToRandomInstantiate: 1
+  PrefabsToInstantiate:
+  - {fileID: 6687682940110421504, guid: f0feff2f4bd13aa4c8e09fdee06d883f, type: 3}
+  - {fileID: 3516352575337148050, guid: 07db9bf568242044f9211ec0cd24c092, type: 3}
+  - {fileID: 3516352575337148050, guid: 07db9bf568242044f9211ec0cd24c092, type: 3}
+  - {fileID: 6687682940110421504, guid: f0feff2f4bd13aa4c8e09fdee06d883f, type: 3}
+  SpawnArea: {x: 0, y: 0, z: 0}
+  PositionOffset: {x: 0, y: 0.5, z: 0}
+  RandomRotation: 0
+  Quantity: 1
+  InstancesLimit: 32
+  EmptyInstantiatePorcentage: 0
+  OnInstantiate:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7601590039123837337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020065889651602335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6deb64f70ce214dbaea92026b75c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnStartGame: 0
+  PlayerController: {fileID: 2524019103404841364}
+  VisualizationSettings:
+    ResourcesPath: 
+    GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
+    WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
+    StepVisualizerMesh: {fileID: 0}
+  StepCorrection: 0
+  GroundCheck: 0
+  WallCheck: 1
 --- !u!1 &5057832813626458993
 GameObject:
   m_ObjectHideFlags: 0
