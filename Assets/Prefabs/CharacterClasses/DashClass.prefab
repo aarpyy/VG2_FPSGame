@@ -860,7 +860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Dasher
-  dash: 1
-  doubleJump: 0
+  classID: 3
+  sprint: 0
+  unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1
   sprintBarIncreaseRate: 0.2

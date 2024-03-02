@@ -344,18 +344,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 668999647, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 4372868026866793236, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    - {fileID: 4372868026812312025, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    - {fileID: 4372868026071104431, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    - {fileID: 5386876918721400889, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    - {fileID: 4372868027366832363, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    - {fileID: 4372868026106652640, guid: 5d1a776477408be4294d1082585c2df4, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2789397953645864498, guid: 5d1a776477408be4294d1082585c2df4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6072443505515444600}
+    m_RemovedGameObjects: [{fileID: 4372868026866793236, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}, {fileID: 4372868026812312025, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}, {fileID: 4372868026071104431, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}, {fileID: 5386876918721400889, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}, {fileID: 4372868027366832363, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}, {fileID: 4372868026106652640, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}]
+    m_AddedGameObjects: [{targetCorrespondingSourceObject: {fileID: 2789397953645864498,
+          guid: 5d1a776477408be4294d1082585c2df4, type: 3}, insertIndex: -1, addedObject: {
+          fileID: 6072443505515444600}}]
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
@@ -456,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: FlamingoClass
+  classID: 1
   sprint: 0
   unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1

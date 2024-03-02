@@ -43,6 +43,12 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.0000029021373
       objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667184, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7631198204876010554, guid: fd2e95e311c5b5e4da32b572f6628427,
+        type: 2}
     - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: AutoRun
@@ -350,6 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: SoldierZeroClass
+  classID: 0
   sprint: 1
   unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1
