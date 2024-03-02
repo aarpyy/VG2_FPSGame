@@ -28,13 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629685543091552420}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3354453217062218619}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &3588516303216845037
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -195,11 +196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemFilterTag: General
-  ItemIcon: {fileID: 0}
-  Unlocked: 0
+  ItemIcon: {fileID: 21300000, guid: f3bcd9447af4c2a4f9ed746a1e7c9c8d, type: 3}
+  Unlocked: 1
   ItemQuantity: 0
   MaxItemQuantity: 1
-  ItemName: 
+  ItemName: FireballAttack
   ItemSwitchID: 0
   Owner: {fileID: 0}
   TPSOwner: {fileID: 0}
@@ -217,9 +218,9 @@ MonoBehaviour:
   IsLeftHandItem: 0
   ForceDualWielding: 0
   DualItemToWielding: {fileID: 0}
-  HoldPose: 0
+  HoldPose: 1
   PushItemFrom: 0
-  OppositeHandPosition: {fileID: 0}
+  OppositeHandPosition: {fileID: 3354453217062218619}
   TPSControllerUser: {fileID: 0}
   mCamera: {fileID: 0}
   ShootDirection: {x: 0, y: 0, z: 0}
@@ -231,13 +232,13 @@ MonoBehaviour:
   TotalBullets: 0
   BulletsAmounts: 0
   NumberOfShotgunBulletsPerShot: 0
-  InfiniteAmmo: 0
-  Fire_Rate: 0.1
+  InfiniteAmmo: 1
+  Fire_Rate: 0.5
   CurrentFireRateToShoot: 0
   Precision: 25
   LossOfAccuracyPerShot: 1
   ShotErrorProbability: 0
-  BulletPrefab: {fileID: 6851967986656199869, guid: b11f799353c606a408a3ab77b46fa3e6,
+  BulletPrefab: {fileID: 6300033877751697886, guid: 5b28464d479bbc34bb8ab09932264987,
     type: 3}
   MuzzleFlashParticlePrefab: {fileID: 6463995516412543354, guid: 126a491ff75fc2d46865cf8c7b986211,
     type: 3}
@@ -248,7 +249,7 @@ MonoBehaviour:
   CameraAimingPosition: {x: 0, y: 0, z: 0}
   ScopeTexture: {fileID: 0}
   CameraFOV: 30
-  GenerateProceduralAnimation: 1
+  GenerateProceduralAnimation: 0
   RecoilForce: 0.1
   RecoilForceRotation: 20
   SliderMovementAxis: 0
@@ -267,3 +268,34 @@ MonoBehaviour:
   ReloadAudio: {fileID: 0}
   EmptyMagazineAudio: {fileID: 0}
   WeaponEquipAudio: {fileID: 0}
+--- !u!1 &1673046974715971002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3354453217062218619}
+  m_Layer: 0
+  m_Name: Left Hand IK Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3354453217062218619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673046974715971002}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00029999623}
+  m_LocalScale: {x: 0.01, y: 0.010000001, z: 0.010000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1521559530392823112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

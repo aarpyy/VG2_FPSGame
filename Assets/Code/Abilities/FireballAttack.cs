@@ -1,11 +1,11 @@
-using UnityEngine;
-// > Import JU Input System Lib
 using JUTPS.JUInputSystem;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// > inherit the JUTPSAnimatedAction class
-public class MagicAttackFlame : JUTPSActions.JUTPSAnimatedAction
+public class FireballAttack : JUTPSActions.JUTPSAnimatedAction
 {
-    [Header("Magic Attack Flame")]
+    [Header("Fireball Attack")]
     public string AnimationStateName;
     public GameObject MagicAttackParticle;
 
@@ -14,7 +14,7 @@ public class MagicAttackFlame : JUTPSActions.JUTPSAnimatedAction
     //Called every frame
     public override void ActionCondition()
     {
-        if (JUInput.GetButtonDown(JUInput.Buttons.AimingButton) && IsActionPlaying == false)
+        if (JUInput.GetButtonDown(JUInput.Buttons.ShotButton) && IsActionPlaying == false)
         {
             //Start action and play animation
             StartAction();
@@ -24,8 +24,6 @@ public class MagicAttackFlame : JUTPSActions.JUTPSAnimatedAction
     //Called every frame while action is playing
     public override void OnActionIsPlaying()
     {
-        //Force NO FiringMode
-        TPSCharacter.FiringMode = false;
         //Make the character look in front of the camera
         TPSCharacter.transform.LookAt(cam.transform.forward * 100);
     }
@@ -35,14 +33,10 @@ public class MagicAttackFlame : JUTPSActions.JUTPSAnimatedAction
     {
         //Store current item in use
         SetCurrentItemIndexToLastUsedItem();
-        //Disable Item
-        DisableItemOnHand();
     }
     //Called on action end
     public override void OnActionEnded()
     {
-        //Re-equip last used item
-        EnableLastUsedItem();
     }
 
     // >> Function to be called by JU Animation Event Receiver <<

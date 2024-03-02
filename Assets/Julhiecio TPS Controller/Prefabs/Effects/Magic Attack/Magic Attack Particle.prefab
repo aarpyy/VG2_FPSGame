@@ -19530,7 +19530,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6300033877751697883}
   - component: {fileID: 642227499904713608}
-  - component: {fileID: 2704710067060433993}
   m_Layer: 0
   m_Name: Magic Attack Particle
   m_TagString: DeadZone
@@ -19579,24 +19578,3 @@ MonoBehaviour:
   MaxAngle: 1.2
   ShakeDuration: 3
   ShakeRadious: 50
---- !u!65 &2704710067060433993
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6300033877751697886}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
