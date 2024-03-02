@@ -550,6 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: MeleeClass
+  classID: 1
   sprint: 1
   unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1

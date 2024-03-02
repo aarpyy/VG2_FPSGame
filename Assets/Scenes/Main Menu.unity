@@ -550,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterClassPrefabs:
   - {fileID: 868876137369761979, guid: 16fe774d1e08ebe42bd753e9e2261f1e, type: 3}
+  - {fileID: 868876137369761979, guid: a2e289642a842b3419edea22dd775ec9, type: 3}
   renderTextureCamera: {fileID: 0}
 --- !u!1001 &37341254
 PrefabInstance:

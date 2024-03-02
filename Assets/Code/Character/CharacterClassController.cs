@@ -20,6 +20,11 @@ namespace Code.Character
         
         private void Start()
         {
+            if (CharacterClassSelector.SelectedCharacterClass != 0)
+            {
+                classID = CharacterClassSelector.SelectedCharacterClass;
+            }
+
             if (characterClasses.Length == 0)
             {
                 Debug.LogError("No character classes are defined");

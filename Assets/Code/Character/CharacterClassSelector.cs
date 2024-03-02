@@ -7,7 +7,7 @@ namespace Code.Character
     public class CharacterClassSelector : MonoBehaviour
     {
         // The currently selected character class
-        public static CharacterClass SelectedCharacterClass { get; private set; }
+        public static int SelectedCharacterClass { get; private set; }
         
         // The character classes to choose from
         public CharacterClass[] characterClassPrefabs;
@@ -45,8 +45,8 @@ namespace Code.Character
                 Debug.LogError("Invalid character class index: " + index);
                 return;
             }
-            
-            SelectedCharacterClass = characterClassPrefabs[index];
+
+            SelectedCharacterClass = characterClassPrefabs[index].classID;
         }
     }
 }

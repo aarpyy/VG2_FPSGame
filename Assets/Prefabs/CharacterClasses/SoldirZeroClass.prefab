@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: SoldierZeroClass
-  classID: 0
+  classID: 2
   sprint: 1
   unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1

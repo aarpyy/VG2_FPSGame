@@ -44,7 +44,7 @@ public class Dashing : MonoBehaviour
         if (dashCDTimer > 0) { return; }
         else dashCDTimer = dashCD;
 
-
+        if (orientation == null) return;
         //dashing = true;
         Vector3 forceToApply = orientation.forward * dashForce * dashForceMultiplier;
 
