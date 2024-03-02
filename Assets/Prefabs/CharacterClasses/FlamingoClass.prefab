@@ -181,8 +181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: FlamingoClass
-  dash: 0
-  doubleJump: 0
+  classID: 1
+  sprint: 0
+  unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1
   sprintBarIncreaseRate: 0.2
 --- !u!114 &1086296902160078791

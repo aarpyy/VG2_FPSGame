@@ -860,7 +860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Double Jumper
-  dash: 0
-  doubleJump: 1
+  classID: 2
+  sprint: 0
+  unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1
   sprintBarIncreaseRate: 0.2

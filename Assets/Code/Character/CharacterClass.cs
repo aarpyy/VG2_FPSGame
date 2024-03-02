@@ -9,9 +9,11 @@ namespace Code.Character
     [RequireComponent(typeof(JUInventory), typeof(JUHealth), typeof(JUCharacterController))]
     public class CharacterClass : MonoBehaviour
     {
-        // State
+        // Configuration
         public string title;
+        public int classID;
         
+        // State
         [Header("Sprint Settings")]
         public bool sprint;
         
@@ -23,6 +25,7 @@ namespace Code.Character
         [ConditionalField("unlimitedSprint", false, ComparisonType.Equals)]
         public float sprintBarIncreaseRate = 0.2f;
         
+        // Outlets
         private JUCharacterController _characterController;
         
         public float SprintPercentage { get; private set; }
