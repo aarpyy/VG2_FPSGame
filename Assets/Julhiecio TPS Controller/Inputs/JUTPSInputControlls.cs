@@ -847,7 +847,7 @@ namespace JUTPS.JUInputSystem
                 {
                     ""name"": """",
                     ""id"": ""54d115f2-3e70-42b8-ac84-48637dadd544"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
