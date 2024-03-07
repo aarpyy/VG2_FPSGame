@@ -1993,8 +1993,8 @@ MonoBehaviour:
     WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
     StepVisualizerMesh: {fileID: -3964615163347849732, guid: 6b70b21f3295a7441b544a6f7bd820e9,
       type: 3}
-  StepCorrection: 0
-  GroundCheck: 0
+  StepCorrection: 1
+  GroundCheck: 1
   WallCheck: 1
 --- !u!1 &5616315741281094982
 GameObject:
