@@ -24,6 +24,12 @@ namespace Code.Character
             {
                 classID = CharacterClassSelector.SelectedCharacterClass;
             }
+            
+            if (classID == 0)
+            {
+                Debug.LogError("No character class is selected");
+                return;
+            }
 
             if (characterClasses.Length == 0)
             {
@@ -61,18 +67,17 @@ namespace Code.Character
                 Destroy(child.gameObject);
             }
 
-            var instantiated = Instantiate(characterClass, transform, true);
-            instantiated.transform.localPosition = Vector3.zero;
-            ActiveClass = instantiated.GetComponent<CharacterClass>();
+            ActiveClass = Instantiate(characterClass, transform, true);
+            ActiveClass.transform.localPosition = Vector3.zero;
 
-            ActiveHealth = instantiated.GetComponent<JUHealth>();
+            ActiveHealth = ActiveClass.GetComponent<JUHealth>();
             if (ActiveHealth == null)
             {
                 Debug.LogError("Character class does not have a health component");
                 return;
             }
 
-            ActiveController = instantiated.GetComponent<JUCharacterController>();
+            ActiveController = ActiveClass.GetComponent<JUCharacterController>();
             if (ActiveController == null)
             {
                 Debug.LogError("Character class does not have a character controller component");

@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff1115af86533e4f8aeb8afb0b90ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDuration: 2
+  dashDuration: 0.15
   dashCD: 1
   dashInput: {fileID: 9074455847895692042, guid: 46aee0084678acc4d82346983bcacfa8,
     type: 3}

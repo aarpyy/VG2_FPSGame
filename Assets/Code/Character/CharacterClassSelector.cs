@@ -63,6 +63,10 @@ namespace Code.Character
         private void OnDestroy()
         {
             previewImage.texture = null;
+            foreach (var characterClass in characterClassPrefabs)
+            {
+                Destroy(characterClass.characterClass.gameObject);
+            }
         }
     }
 }
