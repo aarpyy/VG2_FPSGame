@@ -15,17 +15,23 @@ namespace Code.Character
             public RenderTexture characterPreview;
         }
         
+        // State
         // The currently selected character class
         public static int SelectedCharacterClass { get; private set; }
         
-        // The character classes to choose from
-        public SelectableCharacterClass[] characterClassPrefabs;
         
+        // Outlets
         public RawImage previewImage;
         
         // The horizontal selector to use for choosing the character class
         private HorizontalSelector _horizontalSelector;
         
+        // The character classes to choose from
+        public SelectableCharacterClass[] characterClassPrefabs;
+        
+        // Config
+        public static readonly string SaveKey = "SelectedCharacterClass";
+
         private void Awake()
         {
             _horizontalSelector = GetComponent<HorizontalSelector>();
@@ -58,15 +64,17 @@ namespace Code.Character
 
             SelectedCharacterClass = characterClassPrefabs[index].characterClass.classID;
             previewImage.texture = characterClassPrefabs[index].characterPreview;
+            
+            PlayerPrefs.SetInt(SaveKey, SelectedCharacterClass);
         }
 
         private void OnDestroy()
         {
             previewImage.texture = null;
-            foreach (var characterClass in characterClassPrefabs)
-            {
-                Destroy(characterClass.characterClass.gameObject);
-            }
+            // foreach (var characterClass in characterClassPrefabs)
+            // {
+            //     Destroy(characterClass.characterClass.gameObject);
+            // }
         }
     }
 }

@@ -6,54 +6,67 @@ namespace Code.Menu
 {
     public class LevelUIManager : MonoBehaviour
     {
-        private PauseMenuManager _pauseMenuManager;
-        public static LevelUIManager Instance { get; private set; }
+        // Outlets
+        public GameObject pauseMenuPrefab;
+        private GameObject _pauseMenu;
 
+        // State
+        private static bool _isInScene = false;
+        
         private void Awake()
         {
-            if (Instance != null)
+            if (_isInScene)
             {
                 Destroy(gameObject);
                 return;
             }
             
-            Instance = this;
+            _isInScene = true;
             DontDestroyOnLoad(gameObject);
-            _pauseMenuManager = GetComponentInChildren<PauseMenuManager>(true);
-            DisableLevelMenu();
             
-            SceneManager.activeSceneChanged += (_, curr) =>
+            SceneManager.sceneUnloaded += _ =>
             {
-                if (curr.buildIndex != 0)
+                DisableLevelMenu();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            };
+            
+            SceneManager.sceneLoaded += (scene, _) =>
+            {
+                if (scene.buildIndex != 0)
                 {
                     EnableLevelMenu();
                 }
-                else
-                {
-                    DisableLevelMenu();
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                }
             };
         }
-
-        public void EnableLevelMenu()
+        
+        private void EnableLevelMenu()
         {
-            foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(true);
-            }
-            
-            // Pause menu is default closed, it will be opened by the pause menu manager
-            _pauseMenuManager.pauseMenuCanvas.SetActive(false);
+            _pauseMenu = Instantiate(pauseMenuPrefab);
         }
         
-        public void DisableLevelMenu()
+        private void DisableLevelMenu()
         {
-            foreach (Transform child in transform)
-            {
-                child.gameObject.SetActive(false);
-            }
+            if (_pauseMenu == null) return;
+            Destroy(_pauseMenu);
+            _pauseMenu = null;
+        }
+
+        // public void EnableLevelMenu()
+        // {
+        //     foreach (Transform child in transform)
+        //     {
+        //         child.gameObject.SetActive(true);
+        //     }
+        //     
+        //     // Pause menu is default closed, it will be opened by the pause menu manager
+        //     _pauseMenuManager.pauseMenuCanvas.SetActive(false);
+        // }
+        
+        private void OnDestroy()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

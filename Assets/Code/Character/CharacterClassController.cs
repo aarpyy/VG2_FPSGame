@@ -8,7 +8,7 @@ namespace Code.Character
     public class CharacterClassController : MonoBehaviour
     {
         // Configuration
-        public int classID;
+        public int classID = -1;
         public CharacterClass[] characterClasses;
 
         // State
@@ -20,12 +20,13 @@ namespace Code.Character
         
         private void Start()
         {
-            if (CharacterClassSelector.SelectedCharacterClass != 0)
+            var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
+            if (savedClassID != -1)
             {
-                classID = CharacterClassSelector.SelectedCharacterClass;
+                classID = savedClassID;
             }
             
-            if (classID == 0)
+            if (classID < 0)
             {
                 Debug.LogError("No character class is selected");
                 return;
