@@ -1351,7 +1351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashDuration: 2
   dashCD: 1
-  dashInput: {fileID: 0}
+  dashInput: {fileID: 9074455847895692042, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!114 &868876137369761979
 MonoBehaviour:
   m_ObjectHideFlags: 0
