@@ -1,17 +1,27 @@
+using System;
 using Michsky.UI.Heat;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Code.Character
 {
     [RequireComponent(typeof(HorizontalSelector))]
     public class CharacterClassSelector : MonoBehaviour
     {
+        [Serializable]
+        public struct SelectableCharacterClass
+        {
+            public CharacterClass characterClass;
+            public RenderTexture characterPreview;
+        }
+        
         // The currently selected character class
         public static int SelectedCharacterClass { get; private set; }
         
         // The character classes to choose from
-        public CharacterClass[] characterClassPrefabs;
-        public Camera renderTextureCamera;
+        public SelectableCharacterClass[] characterClassPrefabs;
+        
+        public RawImage previewImage;
         
         // The horizontal selector to use for choosing the character class
         private HorizontalSelector _horizontalSelector;
@@ -30,7 +40,7 @@ namespace Code.Character
             _horizontalSelector.items.Clear();
             foreach (var characterClass in characterClassPrefabs)
             {
-                _horizontalSelector.CreateNewItem(characterClass.title);
+                _horizontalSelector.CreateNewItem(characterClass.characterClass.title);
             }
             _horizontalSelector.InitializeSelector();
             
@@ -46,7 +56,8 @@ namespace Code.Character
                 return;
             }
 
-            SelectedCharacterClass = characterClassPrefabs[index].classID;
+            SelectedCharacterClass = characterClassPrefabs[index].characterClass.classID;
+            previewImage.texture = characterClassPrefabs[index].characterPreview;
         }
     }
 }
