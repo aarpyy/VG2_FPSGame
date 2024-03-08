@@ -59,5 +59,10 @@ namespace Code.Character
             SelectedCharacterClass = characterClassPrefabs[index].characterClass.classID;
             previewImage.texture = characterClassPrefabs[index].characterPreview;
         }
+
+        private void OnDestroy()
+        {
+            previewImage.texture = null;
+        }
     }
 }
