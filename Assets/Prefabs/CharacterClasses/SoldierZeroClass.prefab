@@ -249,6 +249,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2796553948966756035, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b2d04cdac794c4c4584c491343f0c305, type: 2}
     - target: {fileID: 2799431154605538249, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_Layer
@@ -664,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_Name
-      value: SoldirZeroClass
+      value: SoldierZeroClass
       objectReference: {fileID: 0}
     - target: {fileID: 4372868026506870464, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
@@ -776,6 +781,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5102726239614992653, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b2d04cdac794c4c4584c491343f0c305, type: 2}
     - target: {fileID: 5270206520169849622, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_Layer
@@ -866,6 +876,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6925014436716535303, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b2d04cdac794c4c4584c491343f0c305, type: 2}
     - target: {fileID: 6984643903097151997, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_Layer
