@@ -6,8 +6,6 @@ namespace Code.Rebind
     public class RebindSaveLoad : MonoBehaviour
     {
         public InputActionAsset actions;
-        public static float LastRebindTime { get; private set; }
-
         public void OnEnable()
         {
             var rebinds = PlayerPrefs.GetString("rebinds");
@@ -19,7 +17,6 @@ namespace Code.Rebind
         {
             var rebinds = actions.SaveBindingOverridesAsJson();
             PlayerPrefs.SetString("rebinds", rebinds);
-            LastRebindTime = Time.time;
         }
     }
 }

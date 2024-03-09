@@ -62,5 +62,10 @@ namespace Code.Character
             
             Camera.SetupCurrent(_camera.mCamera);
         }
+        
+        public void SetSensitivity(float value)
+        {
+            _camera.GeneralSensibility = value;
+        }
     }
 }
