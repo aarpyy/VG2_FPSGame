@@ -1,5 +1,6 @@
 ﻿using Michsky.UI.Heat;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code.Menu
 {
@@ -23,6 +24,11 @@ namespace Code.Menu
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+
+        public void OnExit()
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

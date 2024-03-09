@@ -561,7 +561,7 @@ namespace JUTPS.JUInputSystem
                 {
                     ""name"": """",
                     ""id"": ""57f0506a-d74f-40e0-bf2f-57f96752a816"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/alt"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
