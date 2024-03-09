@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using JUTPS.JUInputSystem;
@@ -14,6 +15,7 @@ namespace JUTPS.JUInputSystem
 
 	public class JUInputManager : MonoBehaviour
 	{
+		public InputActionAsset inputActions;
 		public JUTPSInputControlls InputActions;
 
 		private bool BlockStandardInputs;
@@ -61,15 +63,16 @@ namespace JUTPS.JUInputSystem
 		public CustomInputButton[] CustomButton;
 
 		public static bool IsUsingGamepad;
+
 		private void Update()
 		{
 			if (InputActions == null)
 			{
-				InputActions = new JUTPSInputControlls();
+				InputActions = new JUTPSInputControlls(inputActions);
 				InputActions.Enable();
 				AddInputUpListeners(InputActions.Player);
 			}
-
+			
 			if (BlockStandardInputs) return;
 
 			UpdateGetButtonDown();

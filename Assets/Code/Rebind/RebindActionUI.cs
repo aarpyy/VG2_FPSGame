@@ -236,7 +236,7 @@ namespace Code.UI
                         m_RebindStopEvent?.Invoke(this, operation);
                         UpdateBindingDisplay();
                         CleanUp();
-
+                        
                         // If there's more composite parts we should bind, initiate a rebind
                         // for the next part.
                         if (allCompositeParts)

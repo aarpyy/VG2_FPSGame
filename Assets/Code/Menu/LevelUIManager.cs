@@ -1,5 +1,7 @@
-﻿using Michsky.UI.Heat;
+﻿using System;
+using Michsky.UI.Heat;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Code.Menu
@@ -11,7 +13,9 @@ namespace Code.Menu
         private GameObject _pauseMenu;
 
         // State
-        private static bool _isInScene = false;
+        private static bool _isInScene;
+        public UnityEvent onOpen;
+        public UnityEvent onClose;
         
         private void Awake()
         {
@@ -43,6 +47,14 @@ namespace Code.Menu
         private void EnableLevelMenu()
         {
             _pauseMenu = Instantiate(pauseMenuPrefab);
+            _pauseMenu.GetComponentInChildren<PauseMenuManager>().onOpen.AddListener(() =>
+            {
+                onOpen.Invoke();
+            });
+            _pauseMenu.GetComponentInChildren<PauseMenuManager>().onClose.AddListener(() =>
+            {
+                onClose.Invoke();
+            });
         }
         
         private void DisableLevelMenu()
@@ -51,17 +63,6 @@ namespace Code.Menu
             Destroy(_pauseMenu);
             _pauseMenu = null;
         }
-
-        // public void EnableLevelMenu()
-        // {
-        //     foreach (Transform child in transform)
-        //     {
-        //         child.gameObject.SetActive(true);
-        //     }
-        //     
-        //     // Pause menu is default closed, it will be opened by the pause menu manager
-        //     _pauseMenuManager.pauseMenuCanvas.SetActive(false);
-        // }
         
         private void OnDestroy()
         {

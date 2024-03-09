@@ -22331,22 +22331,22 @@ PrefabInstance:
     - target: {fileID: 4685256506130565527, guid: 5674c4a126256c947acbaee466bae380,
         type: 3}
       propertyPath: m_text
-      value: Alt
+      value: Space
       objectReference: {fileID: 0}
     - target: {fileID: 4685256506243930242, guid: 5674c4a126256c947acbaee466bae380,
         type: 3}
       propertyPath: buttonText
-      value: Alt
+      value: Space
       objectReference: {fileID: 0}
     - target: {fileID: 4685256506403204379, guid: 5674c4a126256c947acbaee466bae380,
         type: 3}
       propertyPath: m_text
-      value: Alt
+      value: Space
       objectReference: {fileID: 0}
     - target: {fileID: 4685256506970643075, guid: 5674c4a126256c947acbaee466bae380,
         type: 3}
       propertyPath: m_text
-      value: Alt
+      value: Space
       objectReference: {fileID: 0}
     - target: {fileID: 5478263036291402952, guid: 5674c4a126256c947acbaee466bae380,
         type: 3}
