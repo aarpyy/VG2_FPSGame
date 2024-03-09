@@ -14,7 +14,7 @@ public class MagicAttackFlame : JUTPSActions.JUTPSAnimatedAction
     //Called every frame
     public override void ActionCondition()
     {
-        if (JUInput.GetButtonDown(JUInput.Buttons.AimingButton) && IsActionPlaying == false)
+        if (Input.GetKeyDown(KeyCode.G) && IsActionPlaying == false)
         {
             //Start action and play animation
             StartAction();

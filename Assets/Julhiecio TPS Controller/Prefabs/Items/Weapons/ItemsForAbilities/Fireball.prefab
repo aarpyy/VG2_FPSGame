@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6613379704977426712}
   - component: {fileID: 5887909906708198531}
   - component: {fileID: 8572284102441366864}
+  - component: {fileID: 989382976201824607}
   m_Layer: 14
   m_Name: Fireball
   m_TagString: Untagged
@@ -32,8 +33,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3354453217062218619}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &3588516303216845037
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629685543091552420}
-  m_Mesh: {fileID: 2584093662464022575, guid: af3e9ce925f0a524b86f711250e60c36, type: 3}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6613379704977426712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,8 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 32303bb36135b434693cfcf8a48b2e18, type: 2}
-  - {fileID: 2100000, guid: 713fc1c2f2102bf4996b17ec1320fdd4, type: 2}
+  - {fileID: 2100000, guid: 1531a5ddcf44b024a98f689ec3a3155d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,7 +219,7 @@ MonoBehaviour:
   DualItemToWielding: {fileID: 0}
   HoldPose: 1
   PushItemFrom: 0
-  OppositeHandPosition: {fileID: 3354453217062218619}
+  OppositeHandPosition: {fileID: 0}
   TPSControllerUser: {fileID: 0}
   mCamera: {fileID: 0}
   ShootDirection: {x: 0, y: 0, z: 0}
@@ -228,9 +227,9 @@ MonoBehaviour:
   RaycastingLayers:
     serializedVersion: 2
     m_Bits: 0
-  BulletsPerMagazine: 0
-  TotalBullets: 0
-  BulletsAmounts: 0
+  BulletsPerMagazine: 1000
+  TotalBullets: 1000
+  BulletsAmounts: 1000
   NumberOfShotgunBulletsPerShot: 0
   InfiniteAmmo: 1
   Fire_Rate: 0.5
@@ -238,7 +237,7 @@ MonoBehaviour:
   Precision: 25
   LossOfAccuracyPerShot: 1
   ShotErrorProbability: 0
-  BulletPrefab: {fileID: 6300033877751697886, guid: 5b28464d479bbc34bb8ab09932264987,
+  BulletPrefab: {fileID: 9109472931276284358, guid: 61b7fb2e882e8354997af79e28848284,
     type: 3}
   MuzzleFlashParticlePrefab: {fileID: 6463995516412543354, guid: 126a491ff75fc2d46865cf8c7b986211,
     type: 3}
@@ -249,7 +248,7 @@ MonoBehaviour:
   CameraAimingPosition: {x: 0, y: 0, z: 0}
   ScopeTexture: {fileID: 0}
   CameraFOV: 30
-  GenerateProceduralAnimation: 0
+  GenerateProceduralAnimation: 1
   RecoilForce: 0.1
   RecoilForceRotation: 20
   SliderMovementAxis: 0
@@ -268,34 +267,18 @@ MonoBehaviour:
   ReloadAudio: {fileID: 0}
   EmptyMagazineAudio: {fileID: 0}
   WeaponEquipAudio: {fileID: 0}
---- !u!1 &1673046974715971002
-GameObject:
+--- !u!114 &989382976201824607
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3354453217062218619}
-  m_Layer: 0
-  m_Name: Left Hand IK Position
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3354453217062218619
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673046974715971002}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00029999623}
-  m_LocalScale: {x: 0.01, y: 0.010000001, z: 0.010000001}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1521559530392823112}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 629685543091552420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d3c59c114b09a4ab50c639aaed9f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5515789599411835244, guid: 61b7fb2e882e8354997af79e28848284, type: 3}
+  FireballCD: 2
+  FireballTimer: 0

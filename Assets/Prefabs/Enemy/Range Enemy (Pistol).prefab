@@ -8563,7 +8563,7 @@ MonoBehaviour:
   PathToDestination: []
   Destination: {x: 0, y: 0, z: 0}
   WaypointPath: {fileID: 0}
-  DistanceToFinishOnePoint: 1
+  DistanceToFinishOnePoint: 5
   CheckNearestPointOnPath: 0
   OnEndPath: 0
   OnStartPath:
@@ -8669,8 +8669,8 @@ MonoBehaviour:
     GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
     WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
     StepVisualizerMesh: {fileID: 0}
-  StepCorrection: 0
-  GroundCheck: 0
+  StepCorrection: 1
+  GroundCheck: 1
   WallCheck: 1
 --- !u!1 &6072390540693057327
 GameObject:
