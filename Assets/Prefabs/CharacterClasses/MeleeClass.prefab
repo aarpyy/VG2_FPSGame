@@ -28,6 +28,27 @@ PrefabInstance:
       propertyPath: Actions.Array.data[0].OnInputEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Dash, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 809942377708517895, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3346598703644625861, guid: aeb4f7aff45f24d4f9216ed5c1602b3f,
+        type: 3}
+    - target: {fileID: 809942377708517895, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 809942377708517895, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 755ffffa0ae46f74099a25d6b36d8ef7, type: 2}
+    - target: {fileID: 809942377708517895, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: aaff1661d50ef994da2977893623ec94, type: 2}
     - target: {fileID: 1565515331895170645, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: Unlocked
@@ -53,6 +74,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2796553948966756035, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: aaa556c29b063764c9904e9a20a3e43e, type: 2}
     - target: {fileID: 3390740206870371950, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: Unlocked
@@ -398,6 +424,11 @@ PrefabInstance:
       propertyPath: EnableArmorProtection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5102726239614992653, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aaa556c29b063764c9904e9a20a3e43e, type: 2}
     - target: {fileID: 5386876918721400889, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_IsActive
@@ -423,6 +454,17 @@ PrefabInstance:
       propertyPath: EnableArmorHealth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6925014436716535303, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4889536061818514836, guid: aeb4f7aff45f24d4f9216ed5c1602b3f,
+        type: 3}
+    - target: {fileID: 6925014436716535303, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aaa556c29b063764c9904e9a20a3e43e, type: 2}
     - target: {fileID: 6990835895164698112, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_Controller
@@ -508,35 +550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff1115af86533e4f8aeb8afb0b90ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {fileID: 1062697832085310897}
-  dashForce: 20
   dashDuration: 2
   dashCD: 1
-  dashInput:
-    m_Name: Dash Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 9ea1b726-8a2c-499f-87b0-9e7d6923acbd
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 372fa17c-657a-43fc-9eaf-499b377b6f08
-      m_Path: <Keyboard>/leftAlt
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Dash Input
-      m_Flags: 0
-    - m_Name: 
-      m_Id: a1c84a59-2dd5-4150-91ad-1df526345f23
-      m_Path: <Keyboard>/q
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Dash Input
-      m_Flags: 0
-    m_Flags: 0
+  dashInput: {fileID: 0}
 --- !u!114 &868876137369761979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,12 +583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2f1b4d5da6234438ceca64fb2aa3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1062697832085310897 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
-    type: 3}
-  m_PrefabInstance: {fileID: 4132944284232935883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2158951315801164334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2642777513954092005, guid: 5d1a776477408be4294d1082585c2df4,

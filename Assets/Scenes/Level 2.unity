@@ -2309,7 +2309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde935a2096049818fe27c8238a45fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  classID: 0
+  classID: 1
   characterClasses:
   - {fileID: 868876137369761979, guid: 16fe774d1e08ebe42bd753e9e2261f1e, type: 3}
   - {fileID: 868876137369761979, guid: a2e289642a842b3419edea22dd775ec9, type: 3}
