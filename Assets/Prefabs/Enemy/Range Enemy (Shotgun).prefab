@@ -3318,7 +3318,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 65536
   WallRayHeight: 1
-  WallRayDistance: 0.6
+  WallRayDistance: 1
   EnableStepCorrection: 1
   UpStepSpeed: 5
   StepCorrectionMask:
@@ -3736,7 +3736,8 @@ MonoBehaviour:
     ResourcesPath: 
     GizmosColor: {r: 0, g: 0, b: 0, a: 0.5}
     WireGizmosColor: {r: 0.9, g: 0.4, b: 0.2, a: 0.5}
-    StepVisualizerMesh: {fileID: 0}
+    StepVisualizerMesh: {fileID: -3964615163347849732, guid: 6b70b21f3295a7441b544a6f7bd820e9,
+      type: 3}
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
