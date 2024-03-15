@@ -2949,6 +2949,7 @@ GameObject:
   - component: {fileID: 8302761395953460247}
   - component: {fileID: 6054412635900758582}
   - component: {fileID: -1114389964538440136}
+  - component: {fileID: 5639446491812519017}
   m_Layer: 9
   m_Name: Melee Enemy (Katana)
   m_TagString: Enemy
@@ -3444,13 +3445,10 @@ MonoBehaviour:
   IsALoot: 0
   HoldableItensRightHand:
   - {fileID: 3538992538564015067}
-  HoldableItensLeftHand:
-  - {fileID: 7483348809388966290}
+  HoldableItensLeftHand: []
   AllHoldableItems:
-  - {fileID: 7483348809388966290}
   - {fileID: 3538992538564015067}
   AllItems:
-  - {fileID: 7483348809388966290}
   - {fileID: 3538992538564015067}
   SequenceSlot:
   - SelectedSlot: 0
@@ -3646,6 +3644,28 @@ MonoBehaviour:
   StepCorrection: 1
   GroundCheck: 1
   WallCheck: 1
+--- !u!195 &5639446491812519017
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6762101319771028823}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7005921191611374209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4677,7 +4697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6940200316494634669
 Transform:
   m_ObjectHideFlags: 0
