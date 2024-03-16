@@ -976,7 +976,7 @@ Transform:
   m_GameObject: {fileID: 1206280322556227616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.046, z: 0.363}
+  m_LocalPosition: {x: -0.000000115484, y: 0.04599914, z: 0.36300093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2679,7 +2679,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2526349244699519149}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.1
   m_Speed: 3.5
@@ -10101,7 +10101,7 @@ MonoBehaviour:
   InfiniteAmmo: 0
   Fire_Rate: 0.09
   CurrentFireRateToShoot: 0.0933857
-  Precision: 20
+  Precision: 50
   LossOfAccuracyPerShot: 0.2
   ShotErrorProbability: 0
   BulletPrefab: {fileID: 3163126826636465162, guid: 02e0e3a4e7ef532438a19a6e72cc7503,

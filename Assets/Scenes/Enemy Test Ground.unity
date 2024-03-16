@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 412456870}
   m_Layer: 16
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3485,6 +3485,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3489979222139667189, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: Health
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667189, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 4027446090950943866, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: m_RootOrder
@@ -10872,6 +10882,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2524019103404841364, guid: c037204b031768745ae0c46b08d2ea63,
+        type: 3}
+      propertyPath: WallRayDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2993732135541574292, guid: c037204b031768745ae0c46b08d2ea63,
         type: 3}
       propertyPath: Priority
@@ -10890,7 +10905,7 @@ PrefabInstance:
     - target: {fileID: 5020065889651602335, guid: c037204b031768745ae0c46b08d2ea63,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5705491497073070813, guid: c037204b031768745ae0c46b08d2ea63,
         type: 3}
@@ -16607,6 +16622,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1667038400631436410, guid: f04fe56ed062445479ae553abbb45cc6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1667038400631436410, guid: f04fe56ed062445479ae553abbb45cc6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1667038400631436410, guid: f04fe56ed062445479ae553abbb45cc6,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5039778301332535862, guid: f04fe56ed062445479ae553abbb45cc6,
         type: 3}
       propertyPath: m_Name
@@ -37906,6 +37936,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Elite Enemy (dual Katana)
+      objectReference: {fileID: 0}
+    - target: {fileID: 563511196665297906, guid: 0d0aa68474905584fa76ad7712b13f94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139315719468997276, guid: 0d0aa68474905584fa76ad7712b13f94,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139315719468997276, guid: 0d0aa68474905584fa76ad7712b13f94,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139315719468997276, guid: 0d0aa68474905584fa76ad7712b13f94,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6859043558940735178, guid: 0d0aa68474905584fa76ad7712b13f94,
         type: 3}

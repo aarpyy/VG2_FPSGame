@@ -2393,7 +2393,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5039778301332535862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.1
   m_Speed: 3.5
@@ -4283,6 +4283,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6706470270805800881}
     m_Modifications:
+    - target: {fileID: -7963561596682162276, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
+      propertyPath: WallsLayer.m_Bits
+      value: 65536
+      objectReference: {fileID: 0}
     - target: {fileID: 2587229461888056625, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4340,8 +4345,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
+      propertyPath: AimMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
+      propertyPath: FireMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
+      propertyPath: CameraFOV
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
       propertyPath: Fire_Rate
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
@@ -4350,38 +4370,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
+      propertyPath: RecoilForce
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 3163126826636465162, guid: f94355f0ca5b88542b282596e51ff8f3,
+        type: 3}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
       propertyPath: InfiniteAmmo
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
+      propertyPath: RecoilForceRotation
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
       propertyPath: WeaponPositionSpeed
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
       propertyPath: WeaponRotationSpeed
-      value: 20
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
+      propertyPath: SliderMovementOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
       propertyPath: LossOfAccuracyPerShot
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8873450923734636497, guid: 12ee8c7845ee649429e2f2a3886c056d,
+        type: 3}
+      propertyPath: CameraRecoilMultiplier
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8955002424569764730, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000023394823
+      value: -0.000035762787
       objectReference: {fileID: 0}
     - target: {fileID: 8955002424569764730, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07209589
+      value: 0.07200284
       objectReference: {fileID: 0}
     - target: {fileID: 8955002424569764730, guid: 12ee8c7845ee649429e2f2a3886c056d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1228206
+      value: 1.1232868
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

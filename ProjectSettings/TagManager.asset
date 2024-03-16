@@ -17,6 +17,7 @@ TagManager:
   - Distractable
   - CoverTrigger
   - Ground
+  - Walls
   layers:
   - Default
   - TransparentFX
