@@ -68,7 +68,7 @@ namespace JUTPS.JUInputSystem
 		{
 			if (InputActions == null)
 			{
-				InputActions = new JUTPSInputControlls(inputActions);
+				InputActions = new JUTPSInputControlls();
 				InputActions.Enable();
 				AddInputUpListeners(InputActions.Player);
 			}
