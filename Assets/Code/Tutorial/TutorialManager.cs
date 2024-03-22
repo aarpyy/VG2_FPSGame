@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Collections;
 using JUTPS.JUInputSystem;
-using Michsky.UI.Heat;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Tutorial
 {
@@ -14,21 +11,52 @@ namespace Tutorial
         public TutorialPrompt[] prompts;
         private JUInputManager _inputManager;
         public TMP_Text text;
+        public GameObject textParent;
 
         // State
         private int _promptIndex;
-        private bool _started;
+
+        // Configuration
+        public float minPromptTime = 3f;
+        public float promptSeparationTime = 1f;
+        public float promptHangTime = 0.5f;
+        private float _timer;
 
         private void Awake()
         {
-            // Disable everything to prevent bug that occurs when user inputs an action before the tutorial starts
-            InputSystem.DisableAllEnabledActions();
-            
             _inputManager = FindObjectOfType<JUInputManager>();
             if (_inputManager == null)
             {
                 Debug.LogError("No input manager found in scene");
             }
+        }
+
+        private void Start()
+        {
+            StartCoroutine(StartPrompt());
+        }
+
+        private IEnumerator StartPrompt()
+        {
+            if (_promptIndex > 0)
+            {
+                // Let last prompt hang for a bit - only if it's not the first prompt
+                yield return new WaitForSeconds(promptHangTime);
+            }
+            
+            // Disable previous prompt
+            textParent.SetActive(false);
+            
+            // Allow for separation time between prompts
+            yield return new WaitForSeconds(promptSeparationTime);
+            
+            // Enable prompt and display text
+            textParent.SetActive(true);
+            prompts[_promptIndex].Activate();
+            text.SetText(prompts[_promptIndex].promptText);
+            
+            // Start timer for minimum prompt display time
+            _timer = minPromptTime;
         }
 
         private void Update()
@@ -38,39 +66,24 @@ namespace Tutorial
                 return;
             }
 
-            if (!_started)
+            _timer -= Time.deltaTime;
+            if (_timer > 0)
             {
-                // Once the input manager loads the InputActions property, we can start the tutorial
-                if (_inputManager.InputActions == null)
-                {
-                    return;
-                }
-
-                // Disable all prompt actions so they can't skip ahead in the tutorial
-                foreach (var prompt in prompts)
-                {
-                    prompt.enabled = false;
-                }
-
-                _started = true;
-
-                // Enable the first prompt
-                prompts[0].enabled = true;
-                text.SetText(prompts[0].promptText);
+                return;
             }
 
             if (prompts[_promptIndex].IsComplete)
             {
+                prompts[_promptIndex].Deactivate();
                 Debug.Log($"{prompts[_promptIndex].gameObject.name} tutorial completed");
                 _promptIndex++;
                 if (_promptIndex < prompts.Length)
                 {
-                    prompts[_promptIndex].enabled = true;
-                    text.SetText(prompts[_promptIndex].promptText);
+                    StartCoroutine(StartPrompt());
                 }
                 else
                 {
-                    text.gameObject.GetComponentInParent<RectTransform>().gameObject.SetActive(false);
+                    textParent.SetActive(false);
                 }
             }
         }

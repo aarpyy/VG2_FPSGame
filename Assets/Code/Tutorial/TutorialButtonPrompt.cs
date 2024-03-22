@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
@@ -11,7 +10,7 @@ namespace Tutorial
         // State
         private readonly Dictionary<ButtonControl, bool> _keyControls = new();
 
-        private void Start()
+        private void Awake()
         {
             var i = 1;
             foreach (var completionAction in completionActions)
@@ -37,13 +36,6 @@ namespace Tutorial
                 return;
             }
             
-            // If the action has been triggered, set complete. If there are multiple actions (i.e. wasd),
-            // then all of them must be triggered to complete the prompt
-            // foreach (var keyControl in _keyControls.Keys.ToList().Where(key => key.isPressed))
-            // {
-            //     _keyControls[keyControl] += Time.deltaTime;
-            // }
-            
             if (_keyControls.All(control => control.Value))
             {
                 IsComplete = true;
@@ -52,6 +44,11 @@ namespace Tutorial
 
         private void OnAction(InputAction.CallbackContext ctx)
         {
+            if (!isActivated)
+            {
+                return;
+            }
+            
             // Get the control that was used
             var control = ctx.control;
             if (control is not ButtonControl keyControl)

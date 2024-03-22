@@ -9,35 +9,36 @@ namespace Tutorial
     public class TutorialDeltaPrompt : TutorialInputActionPrompt
     {
         // State
-        private readonly Dictionary<DeltaControl, Dictionary<Vector2, float>> _controls = new();
+        private readonly Dictionary<DeltaControl, Dictionary<AxisControl, bool>> _controls = new();
 
-        protected void Start()
+        private void Awake()
         {
             var i = 1;
             foreach (var completionAction in completionActions)
             {
+                completionAction.action.performed += OnAction;
                 foreach (var control in completionAction.action.controls)
                 {
                     if (control is not DeltaControl deltaControl)
                     {
                         continue;
                     }
-                    _controls.TryAdd(deltaControl, new Dictionary<Vector2, float>
+                    _controls.TryAdd(deltaControl, new Dictionary<AxisControl, bool>
                     {
                         {
-                            Vector2.up, 0
+                            deltaControl.up, false
                         },
                         {
-                            Vector2.down, 0
+                            deltaControl.left, false
                         },
                         {
-                            Vector2.left, 0
+                            deltaControl.down, false
                         },
                         {
-                            Vector2.right, 0
+                            deltaControl.right, false
                         }
                     });
-                    
+
                     promptText = promptText.Replace($"${i++}", $"<b>{deltaControl.device.displayName}</b>");
                 }
             }
@@ -49,24 +50,40 @@ namespace Tutorial
             {
                 return;
             }
-
-            // If the action has been triggered, set complete. If there are multiple actions (i.e. wasd),
-            // then all of them must be triggered to complete the prompt
-            foreach (var axis in _controls.Keys.ToList().Where(key => key.value != Vector2.zero))
-            {
-                // For all directions this control is currently moving in, set the control to true
-                foreach (var direction in _controls[axis].Keys.ToList())
-                {
-                    if (Vector2.Dot(axis.value, direction) > 0)
-                    {
-                        _controls[axis][direction] += Time.deltaTime;
-                    }
-                }
-            }
-
-            if (_controls.All(control => control.Value.All(direction => direction.Value > timeToComplete)))
+        
+            if (_controls.All(control => control.Value.All(direction => direction.Value)))
             {
                 IsComplete = true;
+            }
+        }
+
+        private void OnAction(InputAction.CallbackContext ctx)
+        {
+            if (!isActivated)
+            {
+                return;
+            }
+            
+            if (ctx.control is not DeltaControl deltaControl)
+            {
+                return;
+            }
+            
+            if (deltaControl.up.value > 0)
+            {
+                _controls[deltaControl][deltaControl.up] = true;
+            }
+            if (deltaControl.left.value > 0)
+            {
+                _controls[deltaControl][deltaControl.left] = true;
+            }
+            if (deltaControl.down.value > 0)
+            {
+                _controls[deltaControl][deltaControl.down] = true;
+            }
+            if (deltaControl.right.value > 0)
+            {
+                _controls[deltaControl][deltaControl.right] = true;
             }
         }
     }
