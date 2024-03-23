@@ -66,7 +66,7 @@ namespace JUTPS.AI
             if (character.IsDead) { this.enabled = false; return; }
             
             //Get Targets Every Frame
-            //CheckTargets();
+            CheckTargets();
 
             //Default events check
             CheckEndEvents();
@@ -221,7 +221,7 @@ namespace JUTPS.AI
             }
 
             //Get Distance
-            //distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : Vector3.Distance(transform.position, PathToDestination[CurrentWayPointToFollow]);
+           // distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : Vector3.Distance(transform.position, PathToDestination[CurrentWayPointToFollow]);
             //distanceFromDestination = (currentTarget != null) ? Vector3.Distance(transform.position, currentTarget.position) : Vector3.Distance(transform.position, Destination);
 
             if (CurrentWayPointToFollow >= PathToDestination.Length)
