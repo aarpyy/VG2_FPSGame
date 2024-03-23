@@ -3804,7 +3804,7 @@ PrefabInstance:
     - target: {fileID: 3243631560226216737, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3243631560226216739, guid: 3f9896eb08ade7b4ab7b111e294279d4,
         type: 3}
@@ -4214,6 +4214,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee Enemy (fist)
       objectReference: {fileID: 0}
+    - target: {fileID: 5020065889651602335, guid: c037204b031768745ae0c46b08d2ea63,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5705491497073070813, guid: c037204b031768745ae0c46b08d2ea63,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4607,7 +4612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptText: 'You can press the jump key
 
-    twice to double jumpa'
+    twice to double jump'
   lights:
   - light: {fileID: 195361701}
     minIntensity: 25
@@ -9374,7 +9379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2037715141
 MonoBehaviour:
   m_ObjectHideFlags: 0
