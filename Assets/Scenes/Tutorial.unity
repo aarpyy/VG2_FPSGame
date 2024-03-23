@@ -1783,9 +1783,8 @@ MonoBehaviour:
   promptText: 'You can attack with $1
 
     using your fists'
-  completionActions:
-  - {fileID: -296950741405379285, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
-  - {fileID: 4510211439093846945, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: -296950741405379285, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1 &251146415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2454,9 +2453,8 @@ MonoBehaviour:
   promptText: 'Now that you have a weapon
 
     equipped, press $1 again to fire'
-  completionActions:
-  - {fileID: -296950741405379285, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
-  - {fileID: 4510211439093846945, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: 4510211439093846945, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1 &338972192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,8 +2502,8 @@ MonoBehaviour:
   promptText: 'You can sprint with $1
 
     Try it now'
-  completionActions:
-  - {fileID: -3675294800180566659, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: -3675294800180566659, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1 &343106260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,8 +3995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: Use $1 to look around the map
-  completionActions:
-  - {fileID: -1460267939993584590, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: -1460267939993584590, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!43 &588503997
 Mesh:
   m_ObjectHideFlags: 0
@@ -5969,8 +5967,8 @@ MonoBehaviour:
   promptText: 'Switch your currently equipped
 
     item using $1'
-  completionActions:
-  - {fileID: -1318071521098048168, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: -1318071521098048168, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1 &1265379110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,8 +7419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: Try jumping with $1
-  completionActions:
-  - {fileID: 5251019194794807381, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: 5251019194794807381, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1 &1673339879
 GameObject:
   m_ObjectHideFlags: 0
@@ -7468,8 +7466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptText: "Use $1, $3, $2, and $4 to \nmove around the map"
-  completionActions:
-  - {fileID: 4715964031691091545, guid: 46aee0084678acc4d82346983bcacfa8, type: 3}
+  completionAction: {fileID: 4715964031691091545, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1001 &1690521114
 PrefabInstance:
   m_ObjectHideFlags: 0

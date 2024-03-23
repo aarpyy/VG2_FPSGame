@@ -13,19 +13,16 @@ namespace Tutorial
         private void Awake()
         {
             var i = 1;
-            foreach (var completionAction in completionActions)
+            completionAction.action.performed += OnAction;
+            foreach (var control in completionAction.action.controls)
             {
-                completionAction.action.performed += OnAction;
-                foreach (var control in completionAction.action.controls)
+                if (control is not ButtonControl keyControl)
                 {
-                    if (control is not ButtonControl keyControl)
-                    {
-                        continue;
-                    }
-                    _keyControls.TryAdd(keyControl, false);
-                    
-                    promptText = promptText.Replace($"${i++}", $"<b>{keyControl.displayName}</b>");
+                    continue;
                 }
+                _keyControls.TryAdd(keyControl, false);
+
+                promptText = promptText.Replace($"${i++}", $"<b>{keyControl.displayName}</b>");
             }
         }
 
@@ -35,7 +32,7 @@ namespace Tutorial
             {
                 return;
             }
-            
+
             if (_keyControls.All(control => control.Value))
             {
                 IsComplete = true;
@@ -48,14 +45,14 @@ namespace Tutorial
             {
                 return;
             }
-            
+
             // Get the control that was used
             var control = ctx.control;
             if (control is not ButtonControl keyControl)
             {
                 return;
             }
-            
+
             // If the control is in the list of controls, then set the time to complete to the time to complete
             if (_keyControls.ContainsKey(keyControl))
             {

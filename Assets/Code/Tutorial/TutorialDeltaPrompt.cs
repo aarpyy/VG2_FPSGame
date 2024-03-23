@@ -13,35 +13,34 @@ namespace Tutorial
 
         private void Awake()
         {
-            var i = 1;
-            foreach (var completionAction in completionActions)
+            var controlNames = new List<string>();
+            completionAction.action.performed += OnAction;
+            foreach (var control in completionAction.action.controls)
             {
-                completionAction.action.performed += OnAction;
-                foreach (var control in completionAction.action.controls)
+                if (control is not DeltaControl deltaControl)
                 {
-                    if (control is not DeltaControl deltaControl)
-                    {
-                        continue;
-                    }
-                    _controls.TryAdd(deltaControl, new Dictionary<AxisControl, bool>
-                    {
-                        {
-                            deltaControl.up, false
-                        },
-                        {
-                            deltaControl.left, false
-                        },
-                        {
-                            deltaControl.down, false
-                        },
-                        {
-                            deltaControl.right, false
-                        }
-                    });
-
-                    promptText = promptText.Replace($"${i++}", $"<b>{deltaControl.device.displayName}</b>");
+                    continue;
                 }
+                _controls.TryAdd(deltaControl, new Dictionary<AxisControl, bool>
+                {
+                    {
+                        deltaControl.up, false
+                    },
+                    {
+                        deltaControl.left, false
+                    },
+                    {
+                        deltaControl.down, false
+                    },
+                    {
+                        deltaControl.right, false
+                    }
+                });
+
+                controlNames.Add(deltaControl.device.displayName);
             }
+
+            promptText = promptText.Replace("$1", $"<b>{string.Join('/', controlNames)}</b>");
         }
 
         private void Update()
@@ -50,8 +49,8 @@ namespace Tutorial
             {
                 return;
             }
-        
-            if (_controls.All(control => control.Value.All(direction => direction.Value)))
+
+            if (_controls.Any(control => control.Value.All(direction => direction.Value)))
             {
                 IsComplete = true;
             }
@@ -63,12 +62,12 @@ namespace Tutorial
             {
                 return;
             }
-            
+
             if (ctx.control is not DeltaControl deltaControl)
             {
                 return;
             }
-            
+
             if (deltaControl.up.value > 0)
             {
                 _controls[deltaControl][deltaControl.up] = true;

@@ -7,6 +7,6 @@ namespace Tutorial
         // Outlets
 
         // Action to complete in order to progress in this tutorial stage
-        public InputActionReference[] completionActions;
+        public InputActionReference completionAction;
     }
 }
