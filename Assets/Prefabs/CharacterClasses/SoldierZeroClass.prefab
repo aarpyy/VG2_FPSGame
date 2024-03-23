@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 3
-  cooldown: 5
+  cooldown: 0
   jumpInput: {fileID: 5251019194794807381, guid: 46aee0084678acc4d82346983bcacfa8,
     type: 3}
 --- !u!114 &2024143768448769831
