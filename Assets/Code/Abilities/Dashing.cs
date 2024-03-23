@@ -1,3 +1,4 @@
+using System.Collections;
 using JUTPS;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,7 +27,7 @@ namespace Code.Abilities
         {
             _characterController = GetComponent<JUCharacterController>();
             dashInput.action.performed += Dash;
-            dashInput.action.Enable();
+            // dashInput.action.Enable();
 
             if (dashCD < dashDuration - 1)
             {
@@ -48,8 +49,14 @@ namespace Code.Abilities
             if (dashCDTimer > 0) return;
             dashCDTimer = dashCD;
 
+            StartCoroutine(DashCoroutine());
+        }
+        
+        private IEnumerator DashCoroutine()
+        {
             StartDash();
-            Invoke(nameof(ResetDash), dashDuration);
+            yield return new WaitForSeconds(dashDuration);
+            ResetDash();
         }
 
         private void StartDash()
