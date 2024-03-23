@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using JUTPS;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +11,7 @@ namespace Code.Menu
         // public GameObject deathScreen;
         private JUCharacterController _characterController;
         
-        private void Awake()
+        private void Start()
         {
             _characterController = FindObjectOfType<JUCharacterController>();
         }
@@ -21,8 +21,14 @@ namespace Code.Menu
             if (_characterController.IsDead)
             {
                 // deathScreen.SetActive(true);
-                SceneManager.LoadScene(0);
+                StartCoroutine(DelayedRestart());
             }
+        }
+        
+        private IEnumerator DelayedRestart()
+        {
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene(0);
         }
     }
 }
