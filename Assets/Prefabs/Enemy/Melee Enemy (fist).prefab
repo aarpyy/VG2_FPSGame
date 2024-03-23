@@ -2304,7 +2304,7 @@ MonoBehaviour:
   SetRigidbodyVelocity: 1
   FireModeMaxTime: 1
   Speed: 3
-  RotationSpeed: 3
+  RotationSpeed: 30
   JumpForce: 3
   StoppingSpeed: 2
   AirInfluenceControll: 0.5

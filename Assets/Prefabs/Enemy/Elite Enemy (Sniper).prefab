@@ -2303,7 +2303,7 @@ MonoBehaviour:
   LookTargetSpeed: 5
   AttackDuration: 1
   MinTimeToAttack: 0.5
-  MaxTimeToAttack: 30
+  MaxTimeToAttack: 3
   _OnFollowWaypoint:
     m_PersistentCalls:
       m_Calls: []

@@ -3556,7 +3556,7 @@ MonoBehaviour:
     m_Bits: 68353
   StartRunningAtDistance: 1
   StopDistance: 3
-  AttackAtDistance: 10
+  AttackAtDistance: 2
   AimUpOffset: 1
   LookTargetSpeed: 5
   AttackDuration: 1
