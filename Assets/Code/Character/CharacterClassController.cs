@@ -18,7 +18,7 @@ namespace Code.Character
         public JUHealth ActiveHealth { get; private set; }
         private Action<CharacterClass> _onCharacterClassChanged;
         
-        private void Start()
+        private void Awake()
         {
             var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
             if (savedClassID != -1)

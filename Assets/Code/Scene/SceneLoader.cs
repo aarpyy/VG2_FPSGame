@@ -35,5 +35,15 @@ namespace Code.Scene
         {
             _sceneIndex = sceneIndex;
         }
+        
+        public void LoadScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        
+        public void LoadScene(int sceneIndex)
+        {
+            SceneManager.LoadScene(sceneIndex);
+        }
     }
 }

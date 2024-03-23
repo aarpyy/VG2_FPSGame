@@ -28,7 +28,7 @@ TagManager:
   - 
   - 
   - Vehicle
-  - Character
+  - Player
   - Bullet
   - Terrain
   - VehicleMeshCollider
