@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using JUTPS.DestructibleSystem;
 using JUTPS.JUInputSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Tutorial
 {
@@ -12,6 +14,7 @@ namespace Tutorial
         private JUInputManager _inputManager;
         public TMP_Text text;
         public GameObject textParent;
+        public DestructibleObject toDestroy;
 
         // State
         private int _promptIndex;
@@ -59,8 +62,23 @@ namespace Tutorial
             _timer = minPromptTime;
         }
 
+        private static IEnumerator OnComplete()
+        {
+            yield return new WaitForSeconds(3);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene(0);
+        }
+
         private void Update()
         {
+            if (toDestroy.IsFractured)
+            {
+                textParent.SetActive(true);
+                text.SetText("Tutorial complete!\nReturning to main menu...");
+                StartCoroutine(OnComplete());
+            }
+            
             if (_promptIndex >= prompts.Length)
             {
                 return;

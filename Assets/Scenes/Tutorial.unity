@@ -209,7 +209,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1348,6 +1348,18 @@ Transform:
   - {fileID: 251146416}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179434356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3137257219415818231, guid: 01091fa4773b22b48af57ecbc002de51,
+    type: 3}
+  m_PrefabInstance: {fileID: 228027696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17726132bf84fd4eaa489e4a8d21675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195361698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,7 +1882,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2450,9 +2462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab416036f194cf5be6bce0d9ed1a379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptText: 'Now that you have a weapon
-
-    equipped, press $1 again to fire'
+  promptText: Press $1 to shoot the target
   completionAction: {fileID: 4510211439093846945, guid: 46aee0084678acc4d82346983bcacfa8,
     type: 3}
 --- !u!1 &338972192
@@ -3287,7 +3297,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf029062f6ce6714dbf9f56c2d1ef1f2, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3611,7 +3621,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4428,10 +4438,11 @@ Transform:
   - {fileID: 724381612}
   - {fileID: 1441028788}
   - {fileID: 1630171608}
-  - {fileID: 311713353}
   - {fileID: 338972193}
   - {fileID: 249847210}
   - {fileID: 1223992430}
+  - {fileID: 914872220}
+  - {fileID: 311713353}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &678523164
@@ -4456,9 +4467,11 @@ MonoBehaviour:
   - {fileID: 1441028789}
   - {fileID: 249847211}
   - {fileID: 1223992431}
+  - {fileID: 914872221}
   - {fileID: 311713354}
   text: {fileID: 115923478}
   textParent: {fileID: 1265379110}
+  toDestroy: {fileID: 179434356}
   minPromptTime: 3
   promptSeparationTime: 1
   promptHangTime: 0.5
@@ -4830,6 +4843,55 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &914872219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 914872220}
+  - component: {fileID: 914872221}
+  m_Layer: 0
+  m_Name: Aim Prompt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &914872220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914872219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 678523163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &914872221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914872219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab416036f194cf5be6bce0d9ed1a379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: 'Now that you have a weapon
+
+    equipped, press $1 to aim it'
+  completionAction: {fileID: 7256791972192678623, guid: 46aee0084678acc4d82346983bcacfa8,
+    type: 3}
 --- !u!1001 &923211118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5332,7 +5394,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff673bec2f6c87c4c8e5ae02e89ef268, type: 2}
+  - {fileID: 2100000, guid: 282b399db7c56ec428813e66decaac02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7616,7 +7678,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8300,7 +8362,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf029062f6ce6714dbf9f56c2d1ef1f2, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8954,7 +9016,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf029062f6ce6714dbf9f56c2d1ef1f2, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9551,7 +9613,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bf029062f6ce6714dbf9f56c2d1ef1f2, type: 2}
+  - {fileID: 2100000, guid: 1e15234f67c4ffa49a976538f824246a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

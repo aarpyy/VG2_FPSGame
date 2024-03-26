@@ -16,7 +16,7 @@ namespace JUTPS.DestructibleSystem
         public GameObject FracturedObject;
         public Vector3 PositionOffset;
         public float TimeToDestroy = 15;
-        private bool IsFractured = false;
+        public bool IsFractured { get; private set; } = false;
         [Header("Destroy Events")]
         public bool DoSlowmotionWhenDestroy;
         public bool DoSlowmotionWhenPlayerIsJumping; // (Bullet time system)
