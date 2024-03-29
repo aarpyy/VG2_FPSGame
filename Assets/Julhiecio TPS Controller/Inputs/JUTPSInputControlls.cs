@@ -20,9 +20,9 @@ namespace JUTPS.JUInputSystem
     public partial class @JUTPSInputControlls: IInputActionCollection2, IDisposable
     {
         public InputActionAsset asset { get; }
-        public @JUTPSInputControlls(InputActionAsset actionAsset)
+        public @JUTPSInputControlls()
         {
-            asset = actionAsset != null ? actionAsset : InputActionAsset.FromJson(@"{
+            asset = InputActionAsset.FromJson(@"{
     ""name"": ""JUTPSInputControlls"",
     ""maps"": [
         {
