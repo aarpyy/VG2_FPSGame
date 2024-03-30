@@ -363,6 +363,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
+      propertyPath: Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
       propertyPath: AutoRun
       value: 1
       objectReference: {fileID: 0}
@@ -1133,7 +1138,7 @@ MonoBehaviour:
   classID: 2
   sprint: 1
   unlimitedSprint: 0
-  sprintBarDecreaseRate: 0.1
+  sprintBarDecreaseRate: 0.05
   sprintBarIncreaseRate: 0.2
 --- !u!114 &663664605470288696 stripped
 MonoBehaviour:

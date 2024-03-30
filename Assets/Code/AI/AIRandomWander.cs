@@ -1,6 +1,8 @@
 ﻿using System;
 using JUTPS.AI;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace AI
 {
@@ -11,13 +13,16 @@ namespace AI
         private JUCharacterArtificialInteligenceBrain _brain;
 
         // Configuration
-        [Range(1, 100)] public float minWaitTime = 1;   // Minimum time to wait before moving to a new destination
-        [Range(1, 100)] public float maxWaitTime = 5;   // Maximum time to wait before moving to a new destination
-        [Range(1, 100)] public float area = 100;        // Area to wander around
+        // [Range(1, 100)] public float minWaitTime = 10;  // Minimum time to wait before moving to a new destination
+        // [Range(1, 100)] public float maxWaitTime = 60;  // Maximum time to wait before moving to a new destination
+        // [MinMaxSlider(1, 120)] public float[] waitTime;
+        public float minWaitTime = 1;
+        public float maxWaitTime = 120;
+        public Transform[] waypoints;                   // Waypoints to wander around
         
         // State
         private float _currentWaitTime;
-        
+
         private void Awake()
         {
             _brain = GetComponent<JUCharacterArtificialInteligenceBrain>();
@@ -38,21 +43,15 @@ namespace AI
             if (_currentWaitTime <= 0)
             {
                 GenerateNewRandomDestination();
+                _currentWaitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
             }
         }
         
         private void GenerateNewRandomDestination()
         {
-            var randomPosition = transform.position;
-            randomPosition.z += UnityEngine.Random.Range(-area, area);
-            randomPosition.x += UnityEngine.Random.Range(-area, area);
-            _brain.Destination = randomPosition;
-            _currentWaitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
-        }
-        
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawWireCube(transform.position, new Vector3(area, 0, area));
+            // Choose random waypoint
+            var randomWaypoint = waypoints[UnityEngine.Random.Range(0, waypoints.Length)];
+            _brain.Destination = randomWaypoint.position;
         }
     }
 }

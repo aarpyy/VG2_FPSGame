@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -136,17 +137,26 @@ namespace JUTPS.AI
         }
 
 
-        public static Vector3 GetClosestWalkablePoint(Vector3 targetPosition, float offsetDirection = 0.2f)
+        public static Vector3? GetClosestWalkablePoint(Vector3 targetPosition, float offsetDirection = 0.2f)
         {
-            Vector3 position = Vector3.zero;
+            try
+            {
+                Vector3 position = Vector3.zero;
 
-            NavMeshHit hit;
-            NavMesh.SamplePosition(targetPosition, out hit, 2, NavMesh.AllAreas);
+                NavMeshHit hit;
+                NavMesh.SamplePosition(targetPosition, out hit, 2, NavMesh.AllAreas);
+                if (float.IsInfinity(hit.distance)) return null;
 
-            Vector3 dir = (targetPosition - hit.position).normalized;
-            position = hit.position - dir * offsetDirection;
+                Vector3 dir = (targetPosition - hit.position).normalized;
+                position = hit.position - dir * offsetDirection;
 
-            return position;
+                return position;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Could not get closest walkable point: " + e.Message);
+                return null;
+            }
         }
     }
 }

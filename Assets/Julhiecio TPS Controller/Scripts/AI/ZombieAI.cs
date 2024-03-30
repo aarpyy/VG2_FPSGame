@@ -222,7 +222,8 @@ namespace JUTPS.AI
             if (targetJuCharacter != null) smoothedTargetPosition = Vector3.Lerp(smoothedTargetPosition, targetJuCharacter.HumanoidSpine.position - targetJuCharacter.transform.up * AimUpOffset, LookTargetSpeed * Time.deltaTime);
 
             //Get nearby position, this line avoid bugs with Navmesh Obstacles
-            closestWalkablePosition = JUPathFinder.GetClosestWalkablePoint(currentTarget != null ? currentTarget.position : Destination);
+            closestWalkablePosition = JUPathFinder.GetClosestWalkablePoint(currentTarget != null ? currentTarget.position : Destination) ??
+                                      transform.position;
 
             //Stop Following
             if (currentTarget != null)
