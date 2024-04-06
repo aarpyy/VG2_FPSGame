@@ -73,12 +73,15 @@ namespace Code.Character
 
             ActiveClass = Instantiate(characterClass, transform, true);
             ActiveClass.transform.localPosition = Vector3.zero;
-            
-            foreach (var child in characterChildren)
+
+            if (characterChildren != null)
             {
-                child.SetActive(true);
-                child.transform.parent = ActiveClass.transform;
-                child.transform.localPosition = child.transform.position;
+                foreach (var child in characterChildren)
+                {
+                    child.SetActive(true);
+                    child.transform.parent = ActiveClass.transform;
+                    child.transform.localPosition = child.transform.position;
+                }
             }
 
             ActiveHealth = ActiveClass.GetComponent<JUHealth>();
