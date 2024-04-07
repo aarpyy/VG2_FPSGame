@@ -54,7 +54,6 @@ MonoBehaviour:
   PrefabsToInstantiate:
   - {fileID: 7239789628654466306, guid: 2a778e73f29055f4396cdb6d384c9675, type: 3}
   - {fileID: 5601909293816404073, guid: a74e02f973a3a5c4badcbfc67d05f728, type: 3}
-  - {fileID: 5601909293816404073, guid: a74e02f973a3a5c4badcbfc67d05f728, type: 3}
   SpawnArea: {x: 5, y: 0, z: 5}
   PositionOffset: {x: 0, y: 0, z: 0}
   RandomRotation: 1
