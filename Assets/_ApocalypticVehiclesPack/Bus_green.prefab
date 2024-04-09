@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3942095303380013138}
   - component: {fileID: 5457884104331571190}
   - component: {fileID: 6941139612444839147}
+  - component: {fileID: -7084797441121101954}
+  - component: {fileID: -4898439578307261837}
   m_Layer: 0
   m_Name: Bus_green
   m_TagString: Untagged
@@ -84,3 +86,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &-7084797441121101954
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789756479729340210}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.086, y: 0.08400001, z: 0.23700002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.085, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &-4898439578307261837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789756479729340210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.17117599, y: 0.16864502, z: 0.47460395}
+  m_Center: {x: -2.6712052e-16, y: 0.08456285, z: 0.000000037252903}
