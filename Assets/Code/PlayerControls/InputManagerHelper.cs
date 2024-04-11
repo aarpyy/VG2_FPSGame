@@ -1,7 +1,8 @@
-﻿using Code.Menu;
+﻿using System;
+using Code.Menu;
 using JUTPS.JUInputSystem;
-using Michsky.UI.Heat;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerControls
 {
@@ -14,7 +15,7 @@ namespace PlayerControls
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            
+
             _inputManager = GetComponent<JUInputManager>();
             if (!levelUIManager || !_inputManager) return;
 
@@ -27,6 +28,16 @@ namespace PlayerControls
             {
                 _inputManager.InputActions.Enable();
             });
+
+            SceneManager.sceneLoaded += (scene, _) =>
+            {
+                _inputManager.enabled = scene.buildIndex != 0;
+            };
+        }
+
+        private void Start()
+        {
+            _inputManager.enabled = false;
         }
     }
 }
