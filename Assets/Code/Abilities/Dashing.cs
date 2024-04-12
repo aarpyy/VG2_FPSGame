@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using JUTPS;
 using UnityEngine;
@@ -69,7 +70,12 @@ namespace Code.Abilities
         {
             _characterController.Speed = _speed;
         }
-        
+
+        private void OnDestroy()
+        {
+            // Remove callback from input action
+            dashInput.action.performed -= Dash;
+        }
 
     }
 }
