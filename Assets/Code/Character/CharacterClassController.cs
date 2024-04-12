@@ -23,10 +23,13 @@ namespace Code.Character
         
         private void Awake()
         {
-            var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
-            if (savedClassID != -1)
+            if (classID < 0)
             {
-                classID = savedClassID;
+                var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
+                if (savedClassID != -1)
+                {
+                    classID = savedClassID;
+                }
             }
             
             if (classID < 0)

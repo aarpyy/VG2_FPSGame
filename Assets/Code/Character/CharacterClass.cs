@@ -12,6 +12,8 @@ namespace Code.Character
         // Configuration
         public string title;
         public int classID;
+        [TextArea]
+        public string description;
         
         // State
         [Header("Sprint Settings")]

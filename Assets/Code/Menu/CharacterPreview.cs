@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Character;
 using Michsky.UI.Heat;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,13 @@ namespace Code.Menu
 {
     public class CharacterPreview : MonoBehaviour
     {
+        public enum QuestTextState
+        {
+            Idle,
+            Expanding,
+            Minimizing
+        }
+        
         // Outlets
         public Camera overlayCamera;
         public CharacterClass[] classes;
@@ -15,6 +23,7 @@ namespace Code.Menu
         public PanelManager panelManager;
         public LongPressButton rotateRight;
         public LongPressButton rotateLeft;
+        public QuestItem descriptionText;
         
         // Configuration
         public Vector3 offset;
@@ -24,7 +33,10 @@ namespace Code.Menu
         // State
         private int _classIndex;
         private int _rotateDirection;
+        private QuestTextState _state = QuestTextState.Idle;
 
+        private const string SaveKey = "SelectedCharacterClass";
+        
         private void Awake()
         {
             classSelector.onValueChanged.AddListener(OnCharacterClassSelected);
@@ -58,6 +70,16 @@ namespace Code.Menu
             
             // Set up camera to the proper transform
             overlayCamera.transform.position = classes[_classIndex].transform.position + offset;
+            PlayerPrefs.SetInt(SaveKey, classes[_classIndex].classID);
+            
+            // Minimize previous quest (if there was one)
+            // descriptionText.MinimizeQuest();
+            if (enabled)
+            {
+                descriptionText.MinimizeQuest();
+            }
+            
+            _state = QuestTextState.Expanding;
         }
 
         private void Update()
@@ -69,6 +91,32 @@ namespace Code.Menu
             else if (rotateLeft.IsPressing)
             {
                 classes[_classIndex].transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            }
+            
+            switch (_state)
+            {
+                case QuestTextState.Idle:
+                    break;
+                case QuestTextState.Expanding:
+                    // Wait until gameObject is disabled, then call expand
+                    if (!descriptionText.gameObject.activeSelf)
+                    {
+                        _state = QuestTextState.Idle;
+                        // Set the description text
+                        descriptionText.questText = classes[_classIndex].description;
+                        descriptionText.UpdateUI();
+                        descriptionText.ExpandQuest();
+                    }
+                    break;
+                case QuestTextState.Minimizing:
+                    if (descriptionText.gameObject.activeSelf)
+                    {
+                        _state = QuestTextState.Idle;
+                        descriptionText.MinimizeQuest();
+                    }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
