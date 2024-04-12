@@ -20,9 +20,9 @@ namespace JUTPS.JUInputSystem
     public partial class @JUTPSInputControlls: IInputActionCollection2, IDisposable
     {
         public InputActionAsset asset { get; }
-        public @JUTPSInputControlls(InputActionAsset actionAsset)
+        public @JUTPSInputControlls(InputActionAsset overrideAsset)
         {
-            asset = actionAsset != null ? actionAsset : InputActionAsset.FromJson(@"{
+            asset = overrideAsset != null ? overrideAsset : InputActionAsset.FromJson(@"{
     ""name"": ""JUTPSInputControlls"",
     ""maps"": [
         {
@@ -561,7 +561,7 @@ namespace JUTPS.JUInputSystem
                 {
                     ""name"": """",
                     ""id"": ""57f0506a-d74f-40e0-bf2f-57f96752a816"",
-                    ""path"": ""<Keyboard>/alt"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
