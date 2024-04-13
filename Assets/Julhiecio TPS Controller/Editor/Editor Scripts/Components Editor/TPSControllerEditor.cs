@@ -74,6 +74,7 @@ namespace JUTPS.CustomEditors
                 serializedObject.FindProperty("RotationSpeed").floatValue = EditorGUILayout.Slider("  Rotation Speed", pl.RotationSpeed, 0, 30);
                 serializedObject.FindProperty("JumpForce").floatValue = EditorGUILayout.Slider("  Jump Force", pl.JumpForce, 1, 10);
                 serializedObject.FindProperty("AirInfluenceControll").floatValue = EditorGUILayout.Slider("  In Air Control Force", pl.AirInfluenceControll, 0, 100);
+                serializedObject.FindProperty("MaxAirVelocityChange").floatValue = EditorGUILayout.Slider("  Max In Air Velocity Change", pl.MaxAirVelocityChange, 0f, 5f);
                 serializedObject.FindProperty("StoppingSpeed").floatValue = EditorGUILayout.Slider("  Stopping Speed", pl.StoppingSpeed, 0.1f, 5);
                 serializedObject.FindProperty("MaxWalkableAngle").floatValue = EditorGUILayout.Slider("  Max Walkable Angle", pl.MaxWalkableAngle, 0, 89);
 

@@ -529,13 +529,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
+      propertyPath: RotationSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: StoppingSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
       propertyPath: SprintingSkill
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
+      propertyPath: WhatIsWall.m_Bits
+      value: 65536
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
       propertyPath: AirInfluenceControll
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: MaxAirVelocityChange
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
@@ -1540,7 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 3
-  cooldown: 5
+  cooldown: 0
   jumpInput: {fileID: 5251019194794807381, guid: 46aee0084678acc4d82346983bcacfa8,
     type: 3}
 --- !u!114 &663664605470288696 stripped

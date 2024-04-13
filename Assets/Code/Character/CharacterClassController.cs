@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
 using JUTPS;
+using JUTPS.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Code.Character
 {

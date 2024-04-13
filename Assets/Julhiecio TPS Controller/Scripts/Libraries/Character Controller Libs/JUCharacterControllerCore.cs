@@ -67,6 +67,12 @@ namespace JUTPS.CharacterBrain
         public float JumpForce = 3f;
         public float StoppingSpeed = 2;
         public float AirInfluenceControll = 0.5f;
+
+        public float AirInfluenceMultiplier => AirInfluenceControll / 100f;
+        
+        // CUSTOM
+        public float MaxAirVelocityChange = 0.5f;
+        
         public float MaxWalkableAngle = 45;
         public bool CurvedMovement = true;
         public bool LerpRotation = false;
@@ -696,7 +702,7 @@ namespace JUTPS.CharacterBrain
             if (SetRigidbodyVelocity)
             {
                 var localVelocity = transform.InverseTransformDirection(rb.velocity);
-                rb.velocity = DirectionTransform.forward * SpeedMultiplier * Speed + transform.up * localVelocity.y;
+                rb.velocity = DirectionTransform.forward * (SpeedMultiplier * Speed) + transform.up * localVelocity.y;
                 //rb.velocity = DirectionTransform.forward * SpeedMultiplier * Speed + transform.up * rb.velocity.y;
             }
             else
@@ -718,15 +724,42 @@ namespace JUTPS.CharacterBrain
             }
             else
             {
-                transform.Translate(0, -0.2f * Time.deltaTime, 0);
+                transform.Translate(0, -0.2f * Time.fixedDeltaTime, 0);
                 if (SetRigidbodyVelocity)
                 {
-                    if (IsMoving) rb.AddForce(DirectionTransform.forward * AirInfluenceControll * 10, ForceMode.Force);
+                    if (IsMoving)
+                    {
+                        var desiredVelocity = DirectionTransform.forward * (Speed * AirInfluenceMultiplier);
+                        desiredVelocity.y = 0;
+                        
+                        // Clamp desired velocity so that we aren't changing velocity in air too quickly
+                        desiredVelocity = Vector3.ClampMagnitude(desiredVelocity, 0.25f);
+
+                        var currentVelocity = rb.velocity;
+                        var newVelocity = currentVelocity + desiredVelocity;
+                        
+                        // Make sure magnitude of new velocity on x-z plane isn't greater than speed
+                        newVelocity.y = 0;
+                        newVelocity = Vector3.ClampMagnitude(newVelocity, Speed * VelocityMultiplier);
+                        newVelocity.y = currentVelocity.y;
+                        
+                        rb.velocity = newVelocity;
+
+                        // Find target velocity
+                        // var targetVelocity = DirectionTransform.forward * (Speed * VelocityMultiplier);
+                        // targetVelocity.y = 0;
+                        //
+                        // // Find velocity change - scale between no change and max change
+                        // var velocityChange = Vector3.Lerp(Vector3.zero, targetVelocity, AirInfluenceMultiplier);
+                        //
+                        // var newVelocity = Vector3.ClampMagnitude(velocityChange, 10f);
+                        // rb.AddForce(newVelocity, ForceMode.VelocityChange);
+                    }
                     
                 }
                 else
                 {
-                    if (IsMoving) transform.Translate(DirectionTransform.forward * AirInfluenceControll/10 * Time.deltaTime, Space.World);
+                    if (IsMoving) transform.Translate(DirectionTransform.forward * AirInfluenceControll/10 * Time.fixedDeltaTime, Space.World);
                 }
             }
         }

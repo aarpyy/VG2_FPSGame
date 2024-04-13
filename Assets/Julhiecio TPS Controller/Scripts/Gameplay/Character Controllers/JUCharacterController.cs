@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using JUTPS.ItemSystem;
@@ -13,8 +14,7 @@ namespace JUTPS
     [RequireComponent(typeof(Rigidbody), typeof(AudioSource), typeof(CapsuleCollider))]
     public class JUCharacterController : JUCharacterBrain
     {
-        [Header("Controller Options")]
-        public bool UseDefaultControllerInput = true;
+        [Header("Controller Options")] public bool UseDefaultControllerInput = true;
         public bool AutoRun = true;
         public bool WalkOnRunButton = true;
         public bool SprintOnRunButton = false;
@@ -27,16 +27,23 @@ namespace JUTPS
         public bool EnablePunchAttacks = true;
         public bool EnableRoll = true;
 
-        [Header("Physical Damage")]
-        public bool PhysicalDamage = true;
+        [Header("Physical Damage")] public bool PhysicalDamage = true;
         public bool DoRagdollPhysicalDamage = true;
         public float PhysicalDamageStartAt = 25;
         public float PhysicalDamageMultiplier = 0.8f;
         public float RagdollStartAtDamage = 10;
-        public string[] PhysicalDamageIgnoreTags = new string[] { "Player", "Enemy", "Bones", "Wall", "Bullet" };
+
+        public string[] PhysicalDamageIgnoreTags = new string[]
+        {
+            "Player", "Enemy", "Bones", "Wall", "Bullet"
+        };
+
         void FixedUpdate()
         {
-            if (IsDead == true || DisableAllMove == true || JUPauseGame.Paused) { return; }
+            if (IsDead == true || DisableAllMove == true || JUPauseGame.Paused)
+            {
+                return;
+            }
             Movement();
             SlopeSlide();
             StepCorrectionMovement();
@@ -79,6 +86,7 @@ namespace JUTPS
 
 
         #region INPUTS
+
         public virtual void ControllerInputs()
         {
             if (UseDefaultControllerInput == false) return;
@@ -106,7 +114,10 @@ namespace JUTPS
             {
                 if (IsRunning && AutoRun == true)
                 {
-                    IsRunning = false; MaxSprintSpeed = false; CanSprint = true; SprintSpeedDecrease = 0;
+                    IsRunning = false;
+                    MaxSprintSpeed = false;
+                    CanSprint = true;
+                    SprintSpeedDecrease = 0;
                 }
 
                 if (IsCrouched == false || IsProne == true)
@@ -177,7 +188,10 @@ namespace JUTPS
                     IsRunning = true;
                     IsSprinting = true;
                     CanSprint = true;
-                    if (UnlimitedSprintDuration) { MaxSprintSpeed = false; }
+                    if (UnlimitedSprintDuration)
+                    {
+                        MaxSprintSpeed = false;
+                    }
                 }
             }
             else
@@ -202,9 +216,8 @@ namespace JUTPS
             }
 
             //Infinite Sprinting
-            if (SprintingSkill && IsSprinting == true && UnlimitedSprintDuration) MaxSprintSpeed = false; 
+            if (SprintingSkill && IsSprinting == true && UnlimitedSprintDuration) MaxSprintSpeed = false;
 
-           
 
             //Auto Run
             if (WalkOnRunButton)
@@ -231,7 +244,8 @@ namespace JUTPS
             //Mobile Run Button Auto-Run
             if (JUGameManager.IsMobile && BlockVerticalInput == false)
             {
-                if (JUInput.GetButton(JUInput.Buttons.RunButton) && JUInput.GetAxis(JUInput.Axis.MoveHorizontal) == 0 && JUInput.GetAxis(JUInput.Axis.MoveVertical) == 0)
+                if (JUInput.GetButton(JUInput.Buttons.RunButton) && JUInput.GetAxis(JUInput.Axis.MoveHorizontal) == 0 &&
+                    JUInput.GetAxis(JUInput.Axis.MoveVertical) == 0)
                 {
                     if (SprintOnRunButton)
                     {
@@ -251,19 +265,24 @@ namespace JUTPS
             if (!FiringMode) IsAiming = false;
 
             //Block firemod if cursor isnot visible
-            if (Cursor.visible == true && JUGameManager.IsMobile == false && BlockFireModeOnCursorVisible) { return; }
+            if (Cursor.visible == true && JUGameManager.IsMobile == false && BlockFireModeOnCursorVisible)
+            {
+                return;
+            }
 
             //All Items Using. Tags: Weapon, Melee, Gun, Shot, Reload, Aim
             if (Inventory != null)
             {
-                DefaultUseOfAllItems(ShotInput, ShotInputDown, Inventory.IsPickingItem ? false : ReloadInput, AimInput, AimInputDown, EnablePunchAttacks ? ShotInputDown : false);
+                DefaultUseOfAllItems(ShotInput, ShotInputDown, Inventory.IsPickingItem ? false : ReloadInput, AimInput, AimInputDown,
+                    EnablePunchAttacks ? ShotInputDown : false);
             }
             else
             {
                 DefaultUseOfAllItems(ShotInput, ShotInputDown, ReloadInput, AimInput, AimInputDown, EnablePunchAttacks ? ShotInputDown : false);
             }
             // >>> Firing Mode Trigger
-            if ((ShotInput || AimInput) && FiringMode == false && IsRolling == false && IsDriving == false && IsReloading == false && LocomotionMode != MovementMode.JuTpsClassic)
+            if ((ShotInput || AimInput) && FiringMode == false && IsRolling == false && IsDriving == false && IsReloading == false &&
+                LocomotionMode != MovementMode.JuTpsClassic)
             {
                 if ((BlockFireModeOnPunching && IsPunching) == false)
                 {
@@ -277,15 +296,16 @@ namespace JUTPS
                 FiringModeIK = false;
             }
         }
+
         #endregion
 
 
-
-
         #region ANIMATOR
+
         protected virtual void SetupDefaultLayersWeights()
         {
-            SetDefaultAnimatorsLayersWeight(AnimatorParameters, LegsLayerWeight, RightArmLayerWeight, LeftArmLayerWeight, BothArmsLayerWeight, WeaponSwitchLayerWeight);
+            SetDefaultAnimatorsLayersWeight(AnimatorParameters, LegsLayerWeight, RightArmLayerWeight, LeftArmLayerWeight, BothArmsLayerWeight,
+                WeaponSwitchLayerWeight);
 
             if (IsMeleeAttacking)
             {
@@ -298,8 +318,9 @@ namespace JUTPS
             //Debug.Log("Can use leg layer: " + LegMotionEnabledCondition);
 
             //Reloading Condition
-            bool isReloading = (IsReloading || anim.GetCurrentAnimatorStateInfo(AnimatorParameters._BothArmsLayerIndex).IsName("Reload Right Hand Weapon")
-                                            || anim.GetCurrentAnimatorStateInfo(AnimatorParameters._BothArmsLayerIndex).IsName("Reload Left Hand Weapon"));
+            bool isReloading =
+                (IsReloading || anim.GetCurrentAnimatorStateInfo(AnimatorParameters._BothArmsLayerIndex).IsName("Reload Right Hand Weapon")
+                             || anim.GetCurrentAnimatorStateInfo(AnimatorParameters._BothArmsLayerIndex).IsName("Reload Left Hand Weapon"));
 
             // >>> Righ Arm Layer Weight
             if (HoldableItemInUseRightHand != null)
@@ -388,6 +409,7 @@ namespace JUTPS
                 WeaponSwitchLayerWeight = Mathf.MoveTowards(WeaponSwitchLayerWeight, 0, 3 * Time.deltaTime);
             }
         }
+
         public virtual void SetAnimatorParameters()
         {
             //Get World Space blend tree values from horizontal and vertical inputs
@@ -401,13 +423,17 @@ namespace JUTPS
                 //Different movement on mobile to avoid joystick bugs. 
                 if (JUGameManager.IsMobile)
                 {
-                    VY = Mathf.MoveTowards(anim.GetFloat(AnimatorParameters.VerticalInput), 8 * VelocityMultiplier * CorrectBlendTreeValues.z, 8 * Time.deltaTime);
-                    HX = Mathf.MoveTowards(anim.GetFloat(AnimatorParameters.HorizontalInput), 8 * VelocityMultiplier * CorrectBlendTreeValues.x, 8 * Time.deltaTime);
+                    VY = Mathf.MoveTowards(anim.GetFloat(AnimatorParameters.VerticalInput), 8 * VelocityMultiplier * CorrectBlendTreeValues.z,
+                        8 * Time.deltaTime);
+                    HX = Mathf.MoveTowards(anim.GetFloat(AnimatorParameters.HorizontalInput), 8 * VelocityMultiplier * CorrectBlendTreeValues.x,
+                        8 * Time.deltaTime);
                 }
                 else
                 {
-                    VY = Mathf.Lerp(anim.GetFloat(AnimatorParameters.VerticalInput), 3 * VelocityMultiplier * CorrectBlendTreeValues.z, 4 * Time.deltaTime);
-                    HX = Mathf.Lerp(anim.GetFloat(AnimatorParameters.HorizontalInput), 3 * VelocityMultiplier * CorrectBlendTreeValues.x, 4 * Time.deltaTime);
+                    VY = Mathf.Lerp(anim.GetFloat(AnimatorParameters.VerticalInput), 3 * VelocityMultiplier * CorrectBlendTreeValues.z,
+                        4 * Time.deltaTime);
+                    HX = Mathf.Lerp(anim.GetFloat(AnimatorParameters.HorizontalInput), 3 * VelocityMultiplier * CorrectBlendTreeValues.x,
+                        4 * Time.deltaTime);
                 }
             }
 
@@ -456,20 +482,26 @@ namespace JUTPS
             if (AnimatorParameters.FireMode != "") anim.SetBool(AnimatorParameters.FireMode, FiringMode);
 
             //Reset Switch Animation
-            if (IsWeaponSwitching == false && WeaponSwitchLayerWeight == 0 && AnimatorParameters._SwitchWeaponLayerIndex > -1) anim.Play("Empty", AnimatorParameters._SwitchWeaponLayerIndex);
+            if (IsWeaponSwitching == false && WeaponSwitchLayerWeight == 0 && AnimatorParameters._SwitchWeaponLayerIndex > -1)
+                anim.Play("Empty", AnimatorParameters._SwitchWeaponLayerIndex);
 
             //Set Item Wielding
             if (AnimatorParameters.ItemsWieldingIdentifier != "") anim.SetInteger(AnimatorParameters.ItemsWieldingIdentifier, GetWieldingID());
 
             //Set Item Wielding
-            if (AnimatorParameters.ItemWieldingRightHandPoseID != "") anim.SetFloat(AnimatorParameters.ItemWieldingRightHandPoseID, (HoldableItemInUseRightHand != null) ? HoldableItemInUseRightHand.GetWieldingPoseIndex() : 0);
-            if (AnimatorParameters.ItemWieldingLeftHandPoseID != "") anim.SetFloat(AnimatorParameters.ItemWieldingLeftHandPoseID, (HoldableItemInUseLeftHand != null) ? HoldableItemInUseLeftHand.GetWieldingPoseIndex() : 0);
+            if (AnimatorParameters.ItemWieldingRightHandPoseID != "")
+                anim.SetFloat(AnimatorParameters.ItemWieldingRightHandPoseID,
+                    (HoldableItemInUseRightHand != null) ? HoldableItemInUseRightHand.GetWieldingPoseIndex() : 0);
+            if (AnimatorParameters.ItemWieldingLeftHandPoseID != "")
+                anim.SetFloat(AnimatorParameters.ItemWieldingLeftHandPoseID,
+                    (HoldableItemInUseLeftHand != null) ? HoldableItemInUseLeftHand.GetWieldingPoseIndex() : 0);
         }
+
         #endregion
 
 
-
         #region CONTROLLER LOCOMOTION
+
         protected virtual void Movement()
         {
             LocomotionModeController();
@@ -512,11 +544,22 @@ namespace JUTPS
             // >>> Rolling Movement
             if (IsRolling)
             {
-                if (CurvedMovement) { MoveForward(1.5f); } else { MoveDirectional(1.5f); }
+                if (CurvedMovement)
+                {
+                    MoveForward(1.5f);
+                }
+                else
+                {
+                    MoveDirectional(1.5f);
+                }
             }
 
             // >>> No move condition
-            if (CanMove == false) { VelocityMultiplier = 0; return; }
+            if (CanMove == false)
+            {
+                VelocityMultiplier = 0;
+                return;
+            }
 
             // >>> In Air Movement Controller
             InAirMovementControl(JumpInert: true);
@@ -539,13 +582,17 @@ namespace JUTPS
                 WeaponSwitchingCurrentTime += Time.deltaTime;
                 if (WeaponSwitchingCurrentTime >= 0.5f)
                 {
-                    if (FiringMode) { FiringModeIK = true; }
+                    if (FiringMode)
+                    {
+                        FiringModeIK = true;
+                    }
 
                     IsWeaponSwitching = false;
                     WeaponSwitchingCurrentTime = 0;
                 }
             }
         }
+
         protected virtual void LocomotionModeController()
         {
             switch (LocomotionMode)
@@ -578,6 +625,7 @@ namespace JUTPS
 
             if (duration > 0) Invoke("EnableMove", duration);
         }
+
         public void EnableMove()
         {
             DisableAllMove = false;
@@ -586,8 +634,8 @@ namespace JUTPS
         #endregion
 
 
-
         #region ITEM MANAGEMENT
+
         private void WeaponOrientator()
         {
             if (Inventory != null)
@@ -640,14 +688,23 @@ namespace JUTPS
 
             if (HoldableItemInUseRightHand != null)
             {
-                if (HoldableItemInUseRightHand.BlockFireMode) { FiringMode = false; FiringModeIK = false; }
+                if (HoldableItemInUseRightHand.BlockFireMode)
+                {
+                    FiringMode = false;
+                    FiringModeIK = false;
+                }
             }
 
             if (HoldableItemInUseLeftHand != null)
             {
-                if (HoldableItemInUseLeftHand.BlockFireMode) { FiringMode = false; FiringModeIK = false; }
+                if (HoldableItemInUseLeftHand.BlockFireMode)
+                {
+                    FiringMode = false;
+                    FiringModeIK = false;
+                }
             }
         }
+
         private void WieldingIKWeightController()
         {
             //Disable FireMode IK when isn't in FireMode
@@ -729,7 +786,8 @@ namespace JUTPS
                         {
                             if (HoldableItemInUseRightHand.OppositeHandPosition != null)
                             {
-                                LeftHandWeightIK = Mathf.MoveTowards(LeftHandWeightIK, (!FiringModeIK && FiringMode) ? 0 : 1, IKTransitionSpeed * Time.deltaTime);
+                                LeftHandWeightIK = Mathf.MoveTowards(LeftHandWeightIK, (!FiringModeIK && FiringMode) ? 0 : 1,
+                                    IKTransitionSpeed * Time.deltaTime);
                             }
                             else
                             {
@@ -781,7 +839,8 @@ namespace JUTPS
                         {
                             if (HoldableItemInUseLeftHand.OppositeHandPosition != null)
                             {
-                                RightHandWeightIK = Mathf.MoveTowards(RightHandWeightIK, (!FiringModeIK && FiringMode) ? 0 : 1, IKTransitionSpeed * Time.deltaTime);
+                                RightHandWeightIK = Mathf.MoveTowards(RightHandWeightIK, (!FiringModeIK && FiringMode) ? 0 : 1,
+                                    IKTransitionSpeed * Time.deltaTime);
                             }
                             else
                             {
@@ -801,6 +860,7 @@ namespace JUTPS
                 }
             }
         }
+
         private void RefreshItemAimRotationPivot()
         {
             //Pivot Weapons Rotation
@@ -817,19 +877,22 @@ namespace JUTPS
             //Refres item wielding rotation center rotation
             if (FiringMode)
             {
-                PivotItemRotation.transform.rotation = Quaternion.Lerp(PivotItemRotation.transform.rotation, Quaternion.Euler(CamEuler), 10 * RotationSpeed * Time.deltaTime);
+                PivotItemRotation.transform.rotation = Quaternion.Lerp(PivotItemRotation.transform.rotation, Quaternion.Euler(CamEuler),
+                    10 * RotationSpeed * Time.deltaTime);
             }
             else
             {
-                PivotItemRotation.transform.rotation = Quaternion.Lerp(PivotItemRotation.transform.rotation, transform.rotation, 10 * RotationSpeed * Time.deltaTime);
+                PivotItemRotation.transform.rotation = Quaternion.Lerp(PivotItemRotation.transform.rotation, transform.rotation,
+                    10 * RotationSpeed * Time.deltaTime);
             }
             //PivotItemRotation.transform.localEulerAngles = new Vector3(PivotItemRotation.transform.localEulerAngles.x, PivotItemRotation.transform.localEulerAngles.y, transform.localEulerAngles.z);
         }
+
         #endregion
 
 
-
         #region JU FOOT PLACEMENT INTEGRATION
+
         private void FootPlacementIKController()
         {
             if (FootPlacerIK != null)
@@ -855,54 +918,63 @@ namespace JUTPS
                 }
             }
         }
+
         #endregion
 
         #region PHYSICAL DAMAGE FUNCTIONS
+
         public void EnablePhysicalDamage() => PhysicalDamage = true;
+
         public void DisablePhysicalDamage() => PhysicalDamage = false;
+
         public void DisablePhysicalDamageForSeconds(float seconds = 1)
         {
             DisablePhysicalDamage();
-            if (IsInvoking(nameof(EnablePhysicalDamage))) { CancelInvoke(nameof(EnablePhysicalDamage)); }
+            if (IsInvoking(nameof(EnablePhysicalDamage)))
+            {
+                CancelInvoke(nameof(EnablePhysicalDamage));
+            }
             Invoke(nameof(EnablePhysicalDamage), seconds);
         }
 
         #endregion
 
         #region Physics Check
-        void OnTriggerEnter(Collider other)
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.transform.tag == "VehicleArea" && IsDriving == false)
+            if (other.transform.CompareTag("VehicleArea") && IsDriving == false)
             {
                 VehicleInArea = other.GetComponentInParent<JUTPS.VehicleSystem.Vehicle>();
                 ToEnterVehicle = true;
             }
-            if (other.gameObject.tag == "DeadZone")
+            if (other.gameObject.CompareTag("DeadZone"))
             {
                 KillCharacter();
             }
-            if (other.gameObject.tag == "RagdollZone" && Ragdoller != null)
+            if (other.gameObject.CompareTag("RagdollZone") && Ragdoller != null)
             {
                 Ragdoller.State = AdvancedRagdollController.RagdollState.Ragdolled;
                 IsArmedWeight = 0;
             }
         }
-        void OnTriggerExit(Collider other)
+
+        private void OnTriggerExit(Collider other)
         {
-            if (other.transform.tag == "VehicleArea" && IsDriving == false)
+            if (other.transform.CompareTag("VehicleArea") && IsDriving == false)
             {
                 VehicleInArea = null;
                 ToEnterVehicle = false;
             }
         }
 
-        void OnCollisionEnter(Collision other)
+        private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.tag == "DeadZone")
+            if (other.gameObject.CompareTag("DeadZone"))
             {
                 KillCharacter();
             }
-            if (other.gameObject.tag == "RagdollZone" && Ragdoller != null)
+            if (other.gameObject.CompareTag("RagdollZone") && Ragdoller != null)
             {
                 Ragdoller.State = AdvancedRagdollController.RagdollState.Ragdolled;
             }
@@ -911,12 +983,12 @@ namespace JUTPS
             if (PhysicalDamage == false) return;
 
             if (AI.JUCharacterArtificialInteligenceBrain.TagMatches(other.collider.gameObject.tag, PhysicalDamageIgnoreTags)) return;
-            
+
 
             if (other.gameObject.TryGetComponent(out Rigidbody rbOtherPhysicObject))
             {
                 Vector3 contactDirection = (other.contacts[0].point - transform.position).normalized;
-                
+
                 // -1 = a physical object is moving into character direction
                 // 1 = a physical object is moving in character oposite direction
                 float CollisionPressure = Vector3.Dot(contactDirection, rbOtherPhysicObject.velocity.normalized);
@@ -928,7 +1000,7 @@ namespace JUTPS
                 if (physicalDamage > PhysicalDamageStartAt)
                 {
                     TakeDamage(physicalDamage, other.contacts[0].point);
-                    
+
                     //Hit damage on screen
                     //FX.HitMarkerEffect.HitCheck("Skin", "Player", other.contacts[0].point, physicalDamage);
                 }
@@ -936,9 +1008,39 @@ namespace JUTPS
                 if (physicalDamage > RagdollStartAtDamage) Ragdoller.State = AdvancedRagdollController.RagdollState.Ragdolled;
 
             }
-          
+            // If not a rigid body then it is a physically immovable object, so cancel momentum in the direction of the collision
+            else
+            {
+                Vector3 contactDirection = (other.contacts[0].point - transform.position).normalized;
+
+                // Ignore contacts directly down
+                contactDirection.y = 0;
+
+                // Cancel momentum in the direction of the collision but retain the rest of the momentum
+                if (Vector3.Dot(contactDirection, rb.velocity.normalized) > 0)
+                {
+                    rb.velocity = Vector3.ProjectOnPlane(rb.velocity, contactDirection);
+                }
+            }
+
         }
 
+        private void OnCollisionStay(Collision other)
+        {
+            // If it's another rigid body return
+            if (other.gameObject.TryGetComponent(out Rigidbody _)) return;
+            
+            Vector3 contactDirection = (other.contacts[0].point - transform.position).normalized;
+
+            // Ignore contacts directly down
+            contactDirection.y = 0;
+
+            // Cancel momentum in the direction of the collision but retain the rest of the momentum
+            if (Vector3.Dot(contactDirection, rb.velocity.normalized) > 0)
+            {
+                rb.velocity = Vector3.ProjectOnPlane(rb.velocity, contactDirection);
+            }
+        }
 
         #endregion
 
@@ -964,6 +1066,7 @@ namespace JUTPS
                 LookAtIK(LookingPosition, LookingIntensity * LookWeightIK, BodyWeight, 0.6f);
             }
         }
+
         private void OnAnimatorMove()
         {
             ApplyRootMotionOnLocomotion();
