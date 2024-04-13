@@ -22,7 +22,7 @@ namespace JUTPS.JUInputSystem
         public InputActionAsset asset { get; }
         public @JUTPSInputControlls(InputActionAsset overrideAsset)
         {
-            asset = overrideAsset != null ? overrideAsset : InputActionAsset.FromJson(@"{
+            asset = overrideAsset ?? InputActionAsset.FromJson(@"{
     ""name"": ""JUTPSInputControlls"",
     ""maps"": [
         {
