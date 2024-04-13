@@ -133,7 +133,7 @@ namespace JUTPS.ItemSystem
         {
             if (UseOldInputSystem == true) return;
             if (JUInput.Instance() == null) return;
-            if (JUInput.Instance().InputActions == null) return;
+            if (JUInput.Instance().InputControls == null) return;
 
             if (EnableNextAndPreviousWeaponSwitch)
             {
@@ -162,16 +162,16 @@ namespace JUTPS.ItemSystem
 
             if (EnableAlphaNumericWeaponSwitch)
             {
-                if (JUInput.Instance().InputActions.Player.Slot1.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.first);
-                if (JUInput.Instance().InputActions.Player.Slot2.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.second);
-                if (JUInput.Instance().InputActions.Player.Slot3.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.third);
-                if (JUInput.Instance().InputActions.Player.Slot4.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.fourth);
-                if (JUInput.Instance().InputActions.Player.Slot5.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.fifth);
-                if (JUInput.Instance().InputActions.Player.Slot6.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.sixth);
-                if (JUInput.Instance().InputActions.Player.Slot7.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.seventh);
-                if (JUInput.Instance().InputActions.Player.Slot8.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.eighth);
-                if (JUInput.Instance().InputActions.Player.Slot9.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.ninth);
-                if (JUInput.Instance().InputActions.Player.Slot10.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.tenth);
+                if (JUInput.Instance().InputControls.Player.Slot1.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.first);
+                if (JUInput.Instance().InputControls.Player.Slot2.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.second);
+                if (JUInput.Instance().InputControls.Player.Slot3.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.third);
+                if (JUInput.Instance().InputControls.Player.Slot4.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.fourth);
+                if (JUInput.Instance().InputControls.Player.Slot5.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.fifth);
+                if (JUInput.Instance().InputControls.Player.Slot6.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.sixth);
+                if (JUInput.Instance().InputControls.Player.Slot7.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.seventh);
+                if (JUInput.Instance().InputControls.Player.Slot8.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.eighth);
+                if (JUInput.Instance().InputControls.Player.Slot9.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.ninth);
+                if (JUInput.Instance().InputControls.Player.Slot10.triggered) SwitchToItemInSequentialSlot(JUInventory.SequentialSlotsEnum.tenth);
             }
         }
 

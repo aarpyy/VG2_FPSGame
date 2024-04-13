@@ -20,12 +20,12 @@ namespace PlayerControls
 
             levelUIManager.onOpen.AddListener(() =>
             {
-                _inputManager.InputActions.Disable();
+                _inputManager.InputControls.Disable();
             });
 
             levelUIManager.onClose.AddListener(() =>
             {
-                _inputManager.InputActions.Enable();
+                _inputManager.InputControls.Enable();
             });
         }
     }

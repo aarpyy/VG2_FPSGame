@@ -16,7 +16,7 @@ namespace JUTPS.JUInputSystem
 	public class JUInputManager : MonoBehaviour
 	{
 		public InputActionAsset inputActions;
-		public JUTPSInputControlls InputActions;
+		public JUTPSInputControls InputControls;
 
 		private bool BlockStandardInputs;
 		public bool IsBlockingDefaultInputs { get => BlockStandardInputs; }
@@ -66,11 +66,11 @@ namespace JUTPS.JUInputSystem
 
 		private void Update()
 		{
-			if (InputActions == null)
+			if (InputControls == null)
 			{
-				InputActions = new JUTPSInputControlls(inputActions);
-				InputActions.Enable();
-				AddInputUpListeners(InputActions.Player);
+				InputControls = new JUTPSInputControls(inputActions);
+				InputControls.Enable();
+				AddInputUpListeners(InputControls.Player);
 			}
 			
 			if (BlockStandardInputs) return;
@@ -90,7 +90,7 @@ namespace JUTPS.JUInputSystem
 			IsUsingGamepad = (gamepad > keyboardAndMouseLastUsed) ? true : false;
 		}
 
-		private void AddInputUpListeners(JUTPSInputControlls.PlayerActions input)
+		private void AddInputUpListeners(JUTPSInputControls.PlayerActions input)
 		{
 			input.Run.performed += ctx => { PressedRunUp = false; };
 			input.Run.canceled += ctx => { PressedRunUp = true; };
@@ -144,8 +144,8 @@ namespace JUTPS.JUInputSystem
 
 
 			// >>> Joystick Movements
-			MoveHorizontal = InputActions.Player.Move.ReadValue<Vector2>().x;
-			MoveVertical = InputActions.Player.Move.ReadValue<Vector2>().y;
+			MoveHorizontal = InputControls.Player.Move.ReadValue<Vector2>().x;
+			MoveVertical = InputControls.Player.Move.ReadValue<Vector2>().y;
 
 			MoveHorizontal = Mathf.Clamp(MoveHorizontal, -1, 1);
 			MoveVertical = Mathf.Clamp(MoveVertical, -1, 1);
@@ -157,8 +157,8 @@ namespace JUTPS.JUInputSystem
 			}
 			else
 			{
-				RotateHorizontal = InputActions.Player.Look.ReadValue<Vector2>().x;
-				RotateVertical = InputActions.Player.Look.ReadValue<Vector2>().y;
+				RotateHorizontal = InputControls.Player.Look.ReadValue<Vector2>().x;
+				RotateVertical = InputControls.Player.Look.ReadValue<Vector2>().y;
 
 				//OLD INPUT SYSTEM
 				//RotateHorizontal = Input.GetAxis("Mouse X");
@@ -204,22 +204,22 @@ namespace JUTPS.JUInputSystem
 
 		protected virtual void UpdateGetButtonDown()
 		{
-			PressedJumpDown = InputActions.Player.Jump.triggered;
-			PressedRunDown = InputActions.Player.Run.triggered;
-			PressedPunchDown = InputActions.Player.Punch.triggered;
-			PressedRollDown = InputActions.Player.Roll.triggered;
-			PressedProneDown = InputActions.Player.Prone.triggered;
-			PressedCrouchDown = InputActions.Player.Crouch.triggered;
+			PressedJumpDown = InputControls.Player.Jump.triggered;
+			PressedRunDown = InputControls.Player.Run.triggered;
+			PressedPunchDown = InputControls.Player.Punch.triggered;
+			PressedRollDown = InputControls.Player.Roll.triggered;
+			PressedProneDown = InputControls.Player.Prone.triggered;
+			PressedCrouchDown = InputControls.Player.Crouch.triggered;
 
-			PressedShootingDown = InputActions.Player.Fire.triggered;
-			PressedAimingDown = InputActions.Player.Aim.triggered;
-			PressedReloadDown = InputActions.Player.Reload.triggered;
+			PressedShootingDown = InputControls.Player.Fire.triggered;
+			PressedAimingDown = InputControls.Player.Aim.triggered;
+			PressedReloadDown = InputControls.Player.Reload.triggered;
 
-			PressedPickupDown = InputActions.Player.Pickup.triggered;
-			PressedInteractDown = InputActions.Player.Interact.triggered;
-			PressedNextItemDown = InputActions.Player.Next.triggered;
-			PressedPreviousItemDown = InputActions.Player.Previous.triggered;
-			PressedOpenInventoryDown = InputActions.Player.OpenInventory.triggered;
+			PressedPickupDown = InputControls.Player.Pickup.triggered;
+			PressedInteractDown = InputControls.Player.Interact.triggered;
+			PressedNextItemDown = InputControls.Player.Next.triggered;
+			PressedPreviousItemDown = InputControls.Player.Previous.triggered;
+			PressedOpenInventoryDown = InputControls.Player.OpenInventory.triggered;
 
 			#region old code
 			// >>> Get Button Down
@@ -336,21 +336,21 @@ namespace JUTPS.JUInputSystem
 		}
 		protected virtual void UpdateGetButton()
 		{
-			PressedJump = InputActions.Player.Jump.ReadValue<float>() == 1;
-			PressedRun = InputActions.Player.Run.ReadValue<float>() == 1;
-			PressedPunch = InputActions.Player.Punch.ReadValue<float>() == 1;
-			PressedRoll = InputActions.Player.Roll.ReadValue<float>() == 1;
-			PressedProne = InputActions.Player.Prone.ReadValue<float>() == 1;
-			PressedCrouch = InputActions.Player.Crouch.ReadValue<float>() == 1;
+			PressedJump = InputControls.Player.Jump.ReadValue<float>() == 1;
+			PressedRun = InputControls.Player.Run.ReadValue<float>() == 1;
+			PressedPunch = InputControls.Player.Punch.ReadValue<float>() == 1;
+			PressedRoll = InputControls.Player.Roll.ReadValue<float>() == 1;
+			PressedProne = InputControls.Player.Prone.ReadValue<float>() == 1;
+			PressedCrouch = InputControls.Player.Crouch.ReadValue<float>() == 1;
 
-			PressedShooting = InputActions.Player.Fire.ReadValue<float>() == 1;
-			PressedAiming = InputActions.Player.Aim.ReadValue<float>() == 1;
-			PressedReload = InputActions.Player.Reload.ReadValue<float>() == 1;
+			PressedShooting = InputControls.Player.Fire.ReadValue<float>() == 1;
+			PressedAiming = InputControls.Player.Aim.ReadValue<float>() == 1;
+			PressedReload = InputControls.Player.Reload.ReadValue<float>() == 1;
 
-			PressedPickup = InputActions.Player.Pickup.ReadValue<float>() == 1;
-			PressedInteract = InputActions.Player.Interact.ReadValue<float>() == 1;
-			PressedNextItem = InputActions.Player.Next.ReadValue<float>() == 1;
-			PressedPreviousItem = InputActions.Player.Previous.ReadValue<float>() == 1;
+			PressedPickup = InputControls.Player.Pickup.ReadValue<float>() == 1;
+			PressedInteract = InputControls.Player.Interact.ReadValue<float>() == 1;
+			PressedNextItem = InputControls.Player.Next.ReadValue<float>() == 1;
+			PressedPreviousItem = InputControls.Player.Previous.ReadValue<float>() == 1;
 
 			//if(PressedProneDown) Debug.Log("hold to prone");
 
@@ -1051,8 +1051,8 @@ namespace JUTPS.JUInputSystem
 		public static Vector2 GetMousePosition()
 		{
 			if (Instance() == null) return Vector2.zero;
-			if (Instance().InputActions == null) return Vector2.zero;
-			return Instance().InputActions.Player.MousePosition.ReadValue<Vector2>();
+			if (Instance().InputControls == null) return Vector2.zero;
+			return Instance().InputControls.Player.MousePosition.ReadValue<Vector2>();
 		}
 		public static int GetTouchsLengh()
 		{

@@ -111,10 +111,10 @@ namespace JUTPS.UI
             //Update CrosshairPosition
             if (FollowMousePosition)
             {
-                if (JUInput.Instance().InputActions == null) return;
+                if (JUInput.Instance().InputControls == null) return;
 
                 Vector2 movePos;
-                Vector2 GetMousePos = JUInput.Instance().InputActions.Player.MousePosition.ReadValue<Vector2>();
+                Vector2 GetMousePos = JUInput.Instance().InputControls.Player.MousePosition.ReadValue<Vector2>();
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(ParentCanvas.transform as RectTransform, GetMousePos, ParentCanvas.worldCamera, out movePos);
 
                 Vector3 mousePos = ParentCanvas.transform.TransformPoint(movePos);
