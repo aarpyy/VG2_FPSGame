@@ -23,10 +23,13 @@ namespace Code.Character
         
         private void Awake()
         {
-            var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
-            if (savedClassID != -1)
+            if (classID < 0)
             {
-                classID = savedClassID;
+                var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
+                if (savedClassID != -1)
+                {
+                    classID = savedClassID;
+                }
             }
             
             if (classID < 0)
@@ -73,12 +76,15 @@ namespace Code.Character
 
             ActiveClass = Instantiate(characterClass, transform, true);
             ActiveClass.transform.localPosition = Vector3.zero;
-            
-            foreach (var child in characterChildren)
+
+            if (characterChildren != null)
             {
-                child.SetActive(true);
-                child.transform.parent = ActiveClass.transform;
-                child.transform.localPosition = child.transform.position;
+                foreach (var child in characterChildren)
+                {
+                    child.SetActive(true);
+                    child.transform.parent = ActiveClass.transform;
+                    child.transform.localPosition = child.transform.position;
+                }
             }
 
             ActiveHealth = ActiveClass.GetComponent<JUHealth>();

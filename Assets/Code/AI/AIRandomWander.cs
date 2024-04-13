@@ -49,8 +49,14 @@ namespace AI
         
         private void GenerateNewRandomDestination()
         {
+            if (waypoints.Length == 0)
+            {
+                _brain.Destination = transform.position;
+                return;
+            }
+            
             // Choose random waypoint
-            var randomWaypoint = waypoints[UnityEngine.Random.Range(0, waypoints.Length)];
+            var randomWaypoint = waypoints[UnityEngine.Random.Range(0, waypoints.Length - 1)];
             _brain.Destination = randomWaypoint.position;
         }
     }
