@@ -29,22 +29,23 @@ namespace Capture
  
         public void Capture()
         {
-            var activeRenderTexture = RenderTexture.active;
-            RenderTexture.active = Camera.targetTexture;
- 
-            Camera.Render();
-
-            var targetTexture = Camera.targetTexture;
-            var image = new Texture2D(targetTexture.width, targetTexture.height);
-            image.ReadPixels(new Rect(0, 0, targetTexture.width, targetTexture.height), 0, 0);
-            image.Apply();
-            RenderTexture.active = activeRenderTexture;
- 
-            var bytes = image.EncodeToPNG();
-            Destroy(image);
- 
-            File.WriteAllBytes(Application.dataPath + "/Captures/" + fileCounter + ".png", bytes);
-            fileCounter++;
+            ScreenCapture.CaptureScreenshot(Application.dataPath + "/Captures/" + fileCounter + ".png");
+            // var activeRenderTexture = RenderTexture.active;
+            // RenderTexture.active = Camera.targetTexture;
+            //
+            // Camera.Render();
+            //
+            // var targetTexture = Camera.targetTexture;
+            // var image = new Texture2D(targetTexture.width, targetTexture.height);
+            // image.ReadPixels(new Rect(0, 0, targetTexture.width, targetTexture.height), 0, 0);
+            // image.Apply();
+            // RenderTexture.active = activeRenderTexture;
+            //
+            // var bytes = image.EncodeToPNG();
+            // Destroy(image);
+            //
+            // File.WriteAllBytes(Application.dataPath + "/Captures/" + fileCounter + ".png", bytes);
+            // fileCounter++;
         }
     }
 }

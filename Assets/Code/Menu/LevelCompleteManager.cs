@@ -20,6 +20,8 @@ namespace Code.Menu
             if (scene.buildIndex == SceneManager.sceneCountInBuildSettings - 1)
             {
                 SceneManager.LoadScene(0);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {
