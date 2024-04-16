@@ -24,6 +24,20 @@ namespace Code.Menu
         private bool _canOpenMenu = true;
         private CursorLockMode _previousLockMode;
         private bool _previousCursorVisibility;
+        
+        public static DeathManager Instance { get; private set; }
+
+        public bool IsOpen => !_canOpenMenu;
+
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Debug.LogError("There is more than one DeathManager in the scene");
+                return;
+            }
+            Instance = this;
+        }
 
         private void Start()
         {
