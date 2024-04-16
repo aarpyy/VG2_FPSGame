@@ -33,7 +33,7 @@ namespace Code.Menu
         {
             if (Instance != null)
             {
-                Debug.LogError("There is more than one DeathManager in the scene");
+                Destroy(this);
                 return;
             }
             Instance = this;
