@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3233753403387081629}
   m_Layer: 0
-  m_Name: Pause Menu Parent 1
+  m_Name: Victory Menu Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6862745, b: 0, a: 1}
+  m_Color: {r: 0.1764706, g: 0.41568628, b: 0.2708539, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerAsset: {fileID: 11400000, guid: 98972d851a944df4a9402eac62a896e7, type: 2}
   colorType: 0
-  useCustomColor: 0
+  useCustomColor: 1
   useCustomAlpha: 0
 --- !u!114 &6442144646077080019
 MonoBehaviour:
@@ -2075,7 +2075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6862745, b: 0, a: 1}
+  m_Color: {r: 0.16862749, g: 0.4509804, b: 0.24237704, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerAsset: {fileID: 11400000, guid: 98972d851a944df4a9402eac62a896e7, type: 2}
   colorType: 0
-  useCustomColor: 0
+  useCustomColor: 1
   useCustomAlpha: 0
 --- !u!114 &5297252619207255576
 MonoBehaviour:
@@ -2338,7 +2338,7 @@ GameObject:
   - component: {fileID: 676955328511506363}
   - component: {fileID: 4332738341050320230}
   m_Layer: 5
-  m_Name: Paused
+  m_Name: Victory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2877,7 +2877,7 @@ GameObject:
   - component: {fileID: 6339517322622388980}
   - component: {fileID: 8216503585547354326}
   m_Layer: 5
-  m_Name: Canvas - Pause Menu
+  m_Name: Canvas - Victory Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3191,7 +3191,7 @@ GameObject:
   - component: {fileID: 7525098078066330089}
   - component: {fileID: 1493954309686119081}
   m_Layer: 5
-  m_Name: Pause Menu
+  m_Name: Victory Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3292,14 +3292,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4651973700586753913}
-  - {fileID: 2167775629389073384}
   m_Father: {fileID: 5692288241659168140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 75, y: -75}
-  m_SizeDelta: {x: -150, y: 125}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 450.5}
+  m_SizeDelta: {x: -150, y: -1051}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3455803044309573793
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,11 +3510,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Paused
+  m_text: 'Mission Complete
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8e8f97682e668e94cb30d2e6b8e13d84, type: 2}
-  m_sharedMaterial: {fileID: -7304394381272760782, guid: 8e8f97682e668e94cb30d2e6b8e13d84,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3598,7 +3598,7 @@ MonoBehaviour:
   colorType: 1
   useCustomColor: 0
   useCustomAlpha: 1
-  useCustomFont: 0
+  useCustomFont: 1
 --- !u!114 &6778185400219309528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6559,8 +6559,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4283357829243036287, guid: fd2e95e311c5b5e4da32b572f6628427,
     type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: f1c0f887de033ac4b8f1caf9479b21bc, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -7606,6 +7606,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2167775629389073384}
   - {fileID: 8230519462442795062}
   - {fileID: 5828318415696590377}
   - {fileID: 802055219010967766}
@@ -7828,7 +7829,7 @@ GameObject:
   - component: {fileID: 7631778966091646091}
   - component: {fileID: 6049401762763683847}
   m_Layer: 5
-  m_Name: Paused Label
+  m_Name: Victory Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7843,18 +7844,18 @@ RectTransform:
   m_GameObject: {fileID: 8845269001184162231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3297369627515219723}
   - {fileID: 7942575065858974153}
-  m_Father: {fileID: 8230519462442795062}
+  m_Father: {fileID: 5692288241659168140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 50}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7631778966091646091
 MonoBehaviour:
   m_ObjectHideFlags: 0
