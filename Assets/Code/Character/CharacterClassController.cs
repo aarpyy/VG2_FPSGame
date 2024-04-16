@@ -15,6 +15,7 @@ namespace Code.Character
         // Configuration
         public int classID = -1;
         public CharacterClass[] characterClasses;
+        public static string CharacterObjectName = "MyCharacter";
 
         // State
         public static CharacterClassController Instance { get; private set; }
@@ -78,6 +79,9 @@ namespace Code.Character
 
             ActiveClass = Instantiate(characterClass, transform, true);
             ActiveClass.transform.localPosition = Vector3.zero;
+            
+            // Rename the character object
+            ActiveClass.gameObject.name = CharacterObjectName;
 
             if (characterChildren != null)
             {
