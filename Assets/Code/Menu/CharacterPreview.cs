@@ -35,7 +35,7 @@ namespace Code.Menu
         private int _rotateDirection;
         private QuestTextState _state = QuestTextState.Idle;
 
-        private const string SaveKey = "SelectedCharacterClass";
+        public static string SaveKey = "SelectedCharacterClass";
         
         private void Awake()
         {
