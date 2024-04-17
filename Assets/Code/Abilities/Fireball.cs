@@ -22,8 +22,11 @@ namespace Code.Abilities
                 }
             }
 
-            // Destroy the fireball
-            Destroy(gameObject);
+            if (!other.CompareTag("Bullet"))
+            {
+                // Destroy the fireball
+                Destroy(gameObject);
+            }
         }
 
         private void Update()
