@@ -15,16 +15,20 @@ namespace Code.Character
         private Camera _realCamera;
         public Transform helicopter;
         public GameObject canvas;
+        public AudioSource gameAudio;
+        public AudioSource outroAudio;
         
         // Configuration
         public float speed = 5f;
         public float canvasDelay = 2f;
         public float mainMenuDelay = 5f;
+        public float gameAudioFadeOutTime = 2f;
 
         // State
         private int _currentWaypointIndex;
         private bool _isMoving;
         private float _delayTime;
+        private float _fadeTime;
 
         private void Update()
         {
@@ -43,6 +47,9 @@ namespace Code.Character
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
+            
+            gameAudio.volume = Mathf.Lerp(gameAudio.volume, 0, _fadeTime / gameAudioFadeOutTime);
+            _fadeTime += Time.deltaTime;
             
             if (Vector3.Distance(helicopter.position, waypoints[_currentWaypointIndex].position) < 0.1f)
             {
@@ -68,6 +75,7 @@ namespace Code.Character
             {
                 _isMoving = true;
                 _delayTime = 0f;
+                _fadeTime = 0f;
 
                 _realCamera = mainCamera.mCamera;
                 var animator = _realCamera.GetComponent<Animator>();
@@ -93,6 +101,8 @@ namespace Code.Character
                 
                 // Destroy player
                 Destroy(other.gameObject);
+                
+                outroAudio.Play();
             }
         }
     }
