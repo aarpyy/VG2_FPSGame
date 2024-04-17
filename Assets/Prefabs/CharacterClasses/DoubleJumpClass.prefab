@@ -587,6 +587,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7168128563613044730, guid: 021e8993a49d6ea4fbd6f1af51c5dded,
+        type: 3}
+      propertyPath: BloodHitParticle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168128563613044730, guid: 021e8993a49d6ea4fbd6f1af51c5dded,
+        type: 3}
+      propertyPath: BloodScreenEffect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7168128563613044735, guid: 021e8993a49d6ea4fbd6f1af51c5dded,
         type: 3}
       propertyPath: MinDistance
@@ -861,6 +871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Double Jumper
   classID: 2
+  description: 
   sprint: 0
   unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1

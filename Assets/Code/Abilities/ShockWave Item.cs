@@ -7,17 +7,30 @@ namespace JUTPS
 {
     public class ShockWaveItem : MonoBehaviour
     {
-        Rigidbody _rb;
-        Transform _tr;
+       
+
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
-            if (CompareTag("Enemy"))
+            if (other.GetComponent<Rigidbody>() && CompareTag("Player") != true)
             {
-                other.GetComponent<Rigidbody>().AddForce(-transform.forward * 100f * Time.deltaTime);
-                other.GetComponent<JUHealth>().Health -= 20;
-               
+
+                if (other.gameObject.GetComponent<JUHealth>())
+                {
+                    other.gameObject.GetComponent<JUHealth>().Health -= 25;
+                    other.gameObject.GetComponent<Rigidbody>().AddForce(-transform.forward * 100f, ForceMode.Force);
+                    Destroy(this.gameObject, .5f);
+                }
+
+
             }
+            else {
+                Destroy(this.gameObject, .5f);
+            }
+            
+            
         }
+
+        
     }
 }

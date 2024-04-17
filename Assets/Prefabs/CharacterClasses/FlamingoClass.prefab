@@ -253,6 +253,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7631198204876010554, guid: fd2e95e311c5b5e4da32b572f6628427,
         type: 2}
+    - target: {fileID: 3489979222139667189, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: BloodScreenEffect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3489979222139667192, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: AllItems.Array.size
