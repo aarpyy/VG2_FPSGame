@@ -16989,7 +16989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultEvent: 0
   Duration: 0.522
-  AnimationEventName: magicAttackFlame
+  AnimationEventName: StartMagicAttack
   Delay: 0
   CalledAnimationEvent: 0
 --- !u!1101 &8213527339352265804

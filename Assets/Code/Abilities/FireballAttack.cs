@@ -2,48 +2,87 @@ using JUTPS.JUInputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class FireballAttack : JUTPSActions.JUTPSAnimatedAction
+namespace Code.Abilities
 {
-    [Header("Fireball Attack")]
-    public string AnimationStateName;
-    public GameObject MagicAttackParticle;
-
-    void Start() { SwitchAnimationLayer(ActionPart.FullBody); }
-
-    //Called every frame
-    public override void ActionCondition()
+    public class FireballAttack : JUTPSActions.JUTPSAnimatedAction
     {
-        if (JUInput.GetButtonDown(JUInput.Buttons.ShotButton) && IsActionPlaying == false)
+        // Outlets
+        public string AnimationStateName;
+        public Rigidbody fireballPrefab;
+        private GameObject _camPivot;
+
+        // Configuration
+        public float fireDelay = 0.5f;
+        public float fireballSpeed = 30f;
+        
+        // State
+        private float _fireTime;
+        private bool _canFire;
+        
+        private void Start()
         {
-            //Start action and play animation
-            StartAction();
-            PlayAnimation(AnimationStateName);
+            _camPivot = cam.transform.parent.gameObject;
+            SwitchAnimationLayer(ActionPart.FullBody);
         }
-    }
-    //Called every frame while action is playing
-    public override void OnActionIsPlaying()
-    {
-        //Make the character look in front of the camera
-        TPSCharacter.transform.LookAt(cam.transform.forward * 100);
-    }
 
-    //Called on action start
-    public override void OnActionStarted()
-    {
-        //Store current item in use
-        SetCurrentItemIndexToLastUsedItem();
-    }
-    //Called on action end
-    public override void OnActionEnded()
-    {
-    }
+        // Called every frame
+        public override void ActionCondition()
+        {
+            if (JUInput.GetButtonDown(JUInput.Buttons.ShotButton) && IsActionPlaying == false)
+            {
+                // Start action and play animation
+                StartAction();
+                PlayAnimation(AnimationStateName);
+            }
+        }
 
-    // >> Function to be called by JU Animation Event Receiver <<
-    public void magicAttackFlame()
-    {
-        Vector3 spawnPos = anim.GetBoneTransform(HumanBodyBones.RightHand).position + transform.forward * 0.3f;
-        GameObject magic_attack = Instantiate(MagicAttackParticle, spawnPos, transform.rotation, transform);
-        Destroy(magic_attack, 10);
+        // Called every frame while action is playing
+        public override void OnActionIsPlaying()
+        {
+            TPSCharacter.FiringMode = false;
+            TPSCharacter.transform.LookAt(_camPivot.transform.forward + TPSCharacter.transform.position);
+            
+            if (!_canFire) return;
+            
+            // Fireball attack
+            if (_fireTime < 0)
+            {
+                PerformFireballAttack();
+                _fireTime = fireDelay;
+            }
+            
+            _fireTime -= Time.deltaTime;
+        }
+
+        // Called on action start
+        public override void OnActionStarted()
+        {
+            TPSCharacter.CanMove = false;
+            // Store current item in use
+            SetCurrentItemIndexToLastUsedItem();
+        }
+
+        // Called on action end
+        public override void OnActionEnded()
+        {
+            _canFire = false;
+            TPSCharacter.CanMove = true;
+        }
+
+        public void PerformFireballAttack()
+        {
+            // Instantiate fireball
+            var playerTransform = transform;
+            var handTransform = anim.GetBoneTransform(HumanBodyBones.RightHand);
+            var fireball = Instantiate(fireballPrefab, handTransform.position + playerTransform.forward, playerTransform.rotation);
+            fireball.velocity = playerTransform.forward * fireballSpeed;
+        }
+
+        public void StartMagicAttack()
+        {
+            _canFire = true;
+        }
     }
 }
