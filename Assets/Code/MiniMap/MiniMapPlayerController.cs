@@ -7,8 +7,14 @@ namespace Code.MiniMap
     {
         private void Update()
         {
-            var character = CharacterClassController.Instance.ActiveClass.transform;
-            var rotation = character.rotation.eulerAngles.y;
+            var characterClass = CharacterClassController.Instance;
+            if (!characterClass) return;
+            
+            var character = characterClass.ActiveClass;
+            if (!character) return;
+            
+            var characterTransform = character.transform;
+            var rotation = characterTransform.rotation.eulerAngles.y;
             transform.rotation = Quaternion.Euler(0, 0, -rotation);
         }
     }

@@ -334,7 +334,7 @@ MonoBehaviour:
     m_Value: 1
   _SkyboxFill:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.297
   _UseHeightFog:
     m_OverrideState: 1
     m_Value: 1

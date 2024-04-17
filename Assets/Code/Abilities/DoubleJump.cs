@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using JUTPS.JUInputSystem;
 using JUTPS;
@@ -54,6 +55,11 @@ namespace Code.Abilities
                 _rb.AddForce(transform.up * (200 * jumpForce), ForceMode.Impulse);
                 _timeSinceLastJump = 0;
             }
+        }
+
+        private void OnDestroy()
+        {
+            jumpInput.action.performed -= OnJump;
         }
     }
 }
