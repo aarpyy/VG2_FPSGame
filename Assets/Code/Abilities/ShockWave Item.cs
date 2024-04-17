@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JUTPS;
 
 
 namespace JUTPS
@@ -12,7 +13,7 @@ namespace JUTPS
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Rigidbody>() && CompareTag("Player") != true)
+            if (other.GetComponent<Rigidbody>() && other.CompareTag("Player").Equals(false))
             {
 
                 if (other.gameObject.GetComponent<JUHealth>())
