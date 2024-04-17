@@ -232,6 +232,27 @@ PrefabInstance:
       propertyPath: RagdollBones.Array.data[18]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667184, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667184, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a5c538bf67f8d5245a483495c9b86958, type: 3}
+    - target: {fileID: 3489979222139667184, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667184, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 7631198204876010554, guid: fd2e95e311c5b5e4da32b572f6628427,
+        type: 2}
     - target: {fileID: 3489979222139667192, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: AllItems.Array.size
@@ -668,8 +689,9 @@ MonoBehaviour:
   AnimationStateName: MagicSpell
   fireballPrefab: {fileID: 5702760707119277844, guid: 6a386be0a346c0c41abb9b2b04b8a836,
     type: 3}
-  fireDelay: 0.1
+  fireDelay: 0.02
   fireballSpeed: 30
+  fireSoundLingerTime: 1
 --- !u!114 &663664605470288696 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3489979222139667187, guid: 5d1a776477408be4294d1082585c2df4,

@@ -1,3 +1,4 @@
+using System;
 using JUTPS.JUInputSystem;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,17 +13,24 @@ namespace Code.Abilities
         public string AnimationStateName;
         public Rigidbody fireballPrefab;
         private GameObject _camPivot;
+        private AudioSource _audioSource;
 
         // Configuration
         public float fireDelay = 0.5f;
         public float fireballSpeed = 30f;
+        public float fireSoundLingerTime = 1f;
         
         // State
         private float _fireTime;
+        private float _fireSoundTime;
         private bool _canFire;
+        private bool _isDampeningFireSound;
+        private float _initialVolume;
         
         private void Start()
         {
+            _audioSource = GetComponent<AudioSource>();
+            _initialVolume = _audioSource.volume;
             _camPivot = cam.transform.parent.gameObject;
             SwitchAnimationLayer(ActionPart.FullBody);
         }
@@ -60,8 +68,10 @@ namespace Code.Abilities
         public override void OnActionStarted()
         {
             TPSCharacter.CanMove = false;
-            // Store current item in use
-            SetCurrentItemIndexToLastUsedItem();
+            
+            _audioSource.volume = _initialVolume;
+            _audioSource.Play();
+            _isDampeningFireSound = false;
         }
 
         // Called on action end
@@ -69,6 +79,9 @@ namespace Code.Abilities
         {
             _canFire = false;
             TPSCharacter.CanMove = true;
+            
+            _fireSoundTime = fireSoundLingerTime;
+            _isDampeningFireSound = true;
         }
 
         public void PerformFireballAttack()
@@ -83,6 +96,21 @@ namespace Code.Abilities
         public void StartMagicAttack()
         {
             _canFire = true;
+        }
+
+        private void LateUpdate()
+        {
+            if (_isDampeningFireSound)
+            {
+                _fireSoundTime -= Time.deltaTime;
+                _audioSource.volume = Mathf.Lerp(0, 1, _fireSoundTime / fireSoundLingerTime);
+                
+                if (_fireSoundTime <= 0)
+                {
+                    _audioSource.Stop();
+                    _isDampeningFireSound = false;
+                }
+            }
         }
     }
 }
