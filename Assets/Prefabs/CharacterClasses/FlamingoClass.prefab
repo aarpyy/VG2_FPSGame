@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: Actions.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 809942377708517895, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc1695c7de5d9d44995370cce7670c61, type: 2}
     - target: {fileID: 1565515331895170645, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
       propertyPath: ItemModelInBody
@@ -315,6 +320,11 @@ PrefabInstance:
       objectReference: {fileID: 8900736746516375752}
     - target: {fileID: 3489979222139667192, guid: 5d1a776477408be4294d1082585c2df4,
         type: 3}
+      propertyPath: DisableAllItemsOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489979222139667192, guid: 5d1a776477408be4294d1082585c2df4,
+        type: 3}
       propertyPath: AllItems.Array.data[10]
       value: 
       objectReference: {fileID: 8900736746516375752}
@@ -597,7 +607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: FlamingoClass
   classID: 9
-  description: 
+  description: Getting to the choppa quickly might not be their forte but burning
+    things sure is.
   sprint: 0
   unlimitedSprint: 0
   sprintBarDecreaseRate: 0.1

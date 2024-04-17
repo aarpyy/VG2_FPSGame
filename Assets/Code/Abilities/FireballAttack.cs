@@ -31,8 +31,10 @@ namespace Code.Abilities
         {
             _audioSource = GetComponent<AudioSource>();
             _initialVolume = _audioSource.volume;
-            _camPivot = cam.transform.parent.gameObject;
             SwitchAnimationLayer(ActionPart.FullBody);
+
+            if (!cam || !cam.transform.parent) return;
+            _camPivot = cam.transform.parent.gameObject;
         }
 
         // Called every frame

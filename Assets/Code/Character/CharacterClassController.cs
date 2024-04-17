@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Code.Menu;
 using JUTPS;
 using JUTPS.UI;
 using UnityEngine;
@@ -28,7 +29,7 @@ namespace Code.Character
         {
             if (classID < 0)
             {
-                var savedClassID = PlayerPrefs.GetInt(CharacterClassSelector.SaveKey, -1);
+                var savedClassID = PlayerPrefs.GetInt(CharacterPreview.SaveKey, -1);
                 if (savedClassID != -1)
                 {
                     classID = savedClassID;
